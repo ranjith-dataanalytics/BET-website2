@@ -3,135 +3,1393 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BET Maths Masterclass</title>
+
+<title>BET MasterClass</title>
 
 <style>
 :root{
-  --bg:#080c10; --gold:#f2bd42; --text:#c7cbd0;
+  --navy:#1d1c19;
+  --navy-2:#292824;
+  --navy-3:#37342d;
+  --blue:#c99b43;
+  --blue-dark:#a87925;
+  --sky:#e8dfcf;
+  --cream:#f2ede4;
+  --white:#faf7f1;
+  --text:#292722;
+  --muted:#6e685e;
+  --border:#d7cdbc;
+  --soft-blue:#ebe2d4;
+  --gold:#c99b43;
+  --shadow:0 14px 38px rgba(45,39,30,.14);
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#080c10;color:#f4f4f4;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  line-height:1.5;
+  overflow-x:hidden;
 }
+
+/* ================= NAVIGATION ================= */
+
 nav{
-  min-height:90px;display:flex;align-items:center;justify-content:space-between;
-  padding:0 5%;border-bottom:1px solid #1c252c;background:#060a0e;
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  padding:0 5%;
+  background:rgba(29,28,25,.97);
+  border-bottom:1px solid #3d3a34;
+  position:sticky;
+  top:0;
+  z-index:100;
+  backdrop-filter:blur(12px);
 }
-.logo{display:flex;align-items:center;gap:10px}
-.logo-icon{font-size:38px}
-.logo-text h1{color:var(--gold);font-size:30px}
-.logo-text p{font-size:12px;font-weight:bold;color:#ddd}
-.menu{display:flex;gap:35px;list-style:none}
-.menu a{color:#ddd;text-decoration:none;font-size:17px;font-weight:bold;padding-bottom:12px}
-.menu a:hover,.menu a.active{color:var(--gold);border-bottom:2px solid var(--gold)}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+
+.logo-icon{
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  font-size:25px;
+  background:linear-gradient(135deg,var(--blue),#6bb6ff);
+  box-shadow:0 8px 20px rgba(47,128,237,.20);
+}
+
+.logo-text h1{
+  color:var(--navy);
+  font-size:27px;
+  line-height:1.05;
+  letter-spacing:-.5px;
+}
+
+.logo-text p{
+  font-size:11px;
+  font-weight:700;
+  color:var(--blue);
+  letter-spacing:1.2px;
+  margin-top:3px;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+  list-style:none;
+}
+
+.menu a{
+  color:#e7e0d4;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:700;
+  padding:29px 0 25px;
+  border-bottom:3px solid transparent;
+  white-space:nowrap;
+  transition:.25s;
+}
+
+.menu a:hover,
+.menu a.active{
+  color:var(--blue);
+  border-bottom-color:var(--blue);
+}
+
 .login-btn{
-  color:var(--gold);border:1px solid #bd8420;text-decoration:none;
-  padding:14px 22px;border-radius:9px;font-weight:bold;
+  color:var(--white);
+  background:var(--blue);
+  text-decoration:none;
+  padding:12px 18px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:14px;
+  white-space:nowrap;
+  box-shadow:0 7px 18px rgba(47,128,237,.18);
+  transition:.25s;
 }
+
+.login-btn:hover{
+  background:var(--blue-dark);
+  transform:translateY(-1px);
+}
+
+/* ================= HERO ================= */
 
 .hero{
-  min-height:540px;display:grid;grid-template-columns:1.05fr .95fr;
-  align-items:center;gap:30px;padding:50px 5%;
-  background:radial-gradient(circle at 75% 25%,rgba(180,125,20,.10),transparent 28%);
+  min-height:560px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:center;
+  gap:50px;
+  padding:65px 5%;
+  background:
+    radial-gradient(circle at 82% 20%, rgba(47,128,237,.13), transparent 28%),
+    linear-gradient(180deg,#f9fcff 0%,#edf6ff 100%);
 }
-.hero-left h2{font-size:52px;line-height:1.18;margin-bottom:10px}
-.hero-left h2 span{color:var(--gold)}
-.tagline{font-size:30px;font-weight:bold;color:#ddd;margin-bottom:18px}
-.hero-description{font-size:19px;line-height:1.6;color:var(--text);max-width:650px;margin-bottom:28px}
-.features{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
+
+.hero-left h2{
+  font-size:54px;
+  line-height:1.12;
+  margin-bottom:14px;
+  letter-spacing:-1.4px;
+  color:var(--navy);
+}
+
+.hero-left h2 span{
+  color:var(--blue);
+}
+
+.tagline{
+  font-size:25px;
+  font-weight:700;
+  color:#5f594f;
+  margin-bottom:18px;
+}
+
+.hero-description{
+  font-size:18px;
+  line-height:1.7;
+  color:var(--muted);
+  max-width:650px;
+  margin-bottom:30px;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-bottom:30px;
+}
+
 .feature{
-  min-height:82px;padding:14px;display:flex;align-items:center;gap:10px;
-  background:linear-gradient(145deg,#171d22,#10151a);border:1px solid #202a31;border-radius:10px;
+  min-height:92px;
+  padding:13px 10px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  gap:6px;
+  background:#faf7f1;
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:0 6px 18px rgba(50,90,130,.05);
 }
-.feature-icon{font-size:28px;color:var(--gold)}
-.feature-text{font-size:15px;line-height:1.35;font-weight:bold;color:#ddd}
+
+.feature-icon{
+  font-size:25px;
+}
+
+.feature-text{
+  font-size:12px;
+  line-height:1.35;
+  font-weight:700;
+  color:#4e493f;
+}
+
 .start-btn{
-  display:inline-block;padding:20px 32px;border-radius:10px;
-  background:linear-gradient(90deg,#d89929,#ffd25a);color:#171717;
-  text-decoration:none;font-size:18px;font-weight:bold;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:17px 28px;
+  border-radius:11px;
+  background:linear-gradient(90deg,var(--blue),#55a7f7);
+  color:var(--white);
+  text-decoration:none;
+  font-size:16px;
+  font-weight:700;
+  box-shadow:0 10px 24px rgba(47,128,237,.22);
+  transition:.25s;
 }
+
+.start-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 28px rgba(47,128,237,.28);
+}
+
+/* ================= HERO IMAGE ================= */
+
 .hero-right{
-  min-height:430px;border-radius:18px;
-  background-image:linear-gradient(90deg,rgba(8,12,16,.12),rgba(8,12,16,.02)),url("assets/hero-background.png");
-  background-size:cover;background-position:center;
+  min-height:430px;
+  border-radius:24px;
+  overflow:hidden;
+  border:8px solid rgba(255,255,255,.72);
+  box-shadow:var(--shadow);
+  background-image:
+    linear-gradient(120deg,rgba(20,62,104,.10),rgba(47,128,237,.02)),
+    url("hero-background.png");
+  background-size:cover;
+  background-position:center;
   background-repeat:no-repeat;
 }
-.classes{border-top:1px solid #1b242b;padding:30px 5% 65px;text-align:center}
-.section-small{color:var(--gold);font-size:17px;font-weight:bold;letter-spacing:1px;margin-bottom:10px}
-.section-title{font-size:34px;margin-bottom:30px}
-.class-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px}
+
+/* ================= CLASSES ================= */
+
+.classes{
+  padding:75px 5%;
+  text-align:center;
+  background:var(--white);
+}
+
+.section-small{
+  color:var(--blue);
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  margin-bottom:10px;
+}
+
+.section-title{
+  color:var(--navy);
+  font-size:36px;
+  margin-bottom:35px;
+  letter-spacing:-.6px;
+}
+
+.class-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  max-width:1250px;
+  margin:auto;
+}
+
 .class-card{
-  padding:34px 20px 22px;min-height:250px;border-radius:12px;
-  background:linear-gradient(145deg,#151b20,#101519);border:1px solid #2b353d;
+  padding:30px 20px 24px;
+  min-height:245px;
+  border-radius:18px;
+  background:#fffdf9;
+  border:1px solid var(--border);
+  box-shadow:0 10px 28px rgba(0,0,0,.16);
+  transition:.25s;
 }
-.class-icon{font-size:52px;margin-bottom:16px}
-.class-card h3{font-size:29px;margin-bottom:8px}
-.class-card p{color:#e0b65b;font-size:17px;margin-bottom:22px}
+
+.class-card:hover{
+  transform:translateY(-7px);
+  border-color:#c99b43;
+  box-shadow:0 16px 32px rgba(35,72,108,.13);
+}
+
+.class-icon{
+  width:72px;
+  height:72px;
+  margin:0 auto 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:35px;
+  border-radius:20px;
+  background:var(--soft-blue);
+}
+
+.class-card h3{
+  color:var(--navy);
+  font-size:27px;
+  margin-bottom:8px;
+}
+
+.class-card p{
+  color:var(--muted);
+  font-size:15px;
+  margin-bottom:22px;
+}
+
 .explore-btn{
-  display:block;width:75%;margin:auto;padding:12px;border:1px solid #9b7026;
-  border-radius:8px;color:#e6be64;text-decoration:none;font-weight:bold;
+  display:block;
+  width:88%;
+  margin:auto;
+  padding:12px;
+  border:1px solid #9fc7ef;
+  border-radius:10px;
+  color:var(--blue);
+  background:#f5efe6;
+  text-decoration:none;
+  font-weight:700;
+  transition:.25s;
 }
+
+.explore-btn:hover{
+  background:var(--blue);
+  border-color:var(--blue);
+  color:var(--white);
+}
+
+/* ================= BOTTOM SECTION ================= */
+
+.contact-section{
+  background:linear-gradient(180deg,#e9dfd0 0%,#ddd0bf 100%);
+  padding:70px 5% 50px;
+}
+
+.contact-heading{
+  text-align:center;
+  margin-bottom:34px;
+}
+
+.contact-heading h2{
+  font-size:34px;
+  margin-bottom:12px;
+  color:var(--navy);
+}
+
+.contact-heading p{
+  font-size:17px;
+  color:var(--muted);
+  max-width:750px;
+  margin:auto;
+  line-height:1.65;
+}
+
+.contact-buttons{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  max-width:900px;
+  margin:0 auto 55px;
+}
+
+.contact-btn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:60px;
+  padding:15px;
+  background:var(--white);
+  color:#4d473e;
+  text-decoration:none;
+  font-size:16px;
+  font-weight:700;
+  border:1px solid var(--border);
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(50,90,130,.05);
+  transition:.25s;
+}
+
+.contact-btn:hover{
+  border-color:#c99b43;
+  color:var(--blue);
+  transform:translateY(-3px);
+}
+
+/* ================= BENEFITS ================= */
+
+.benefits{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+  max-width:1200px;
+  margin:0 auto 45px;
+}
+
+.benefit{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.benefit-icon{
+  width:42px;
+  height:42px;
+  min-width:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #cbbca7;
+  background:var(--white);
+  border-radius:50%;
+  color:var(--blue);
+  font-weight:700;
+}
+
+.benefit-text h3{
+  font-size:15px;
+  color:var(--navy);
+  margin-bottom:3px;
+}
+
+.benefit-text p{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* ================= QUESTION BOX ================= */
+
+.question-box{
+  max-width:950px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:24px 26px;
+  border:1px solid #cbbca7;
+  border-radius:18px;
+  background:var(--white);
+  box-shadow:0 10px 28px rgba(35,72,108,.08);
+}
+
+.question-text h3{
+  color:var(--navy);
+  font-size:18px;
+  margin-bottom:6px;
+}
+
+.question-text p{
+  color:var(--muted);
+}
+
+.question-btn{
+  background:var(--blue);
+  color:var(--white);
+  padding:14px 22px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  white-space:nowrap;
+  box-shadow:0 8px 18px rgba(47,128,237,.18);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  text-align:center;
+  padding:24px;
+  background:#211f1b;
+  color:#d8d0c3;
+  font-size:14px;
+}
+
+footer span{
+  color:#ffffff;
+  font-weight:700;
+}
+
+/* ================= TABLET ================= */
+
 @media(max-width:1000px){
-  .features{grid-template-columns:repeat(2,1fr)}
-  .class-grid{grid-template-columns:repeat(2,1fr)}
+  nav{
+    gap:15px;
+  }
+
+  .menu{
+    gap:18px;
+  }
+
+  .features{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .class-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .benefits{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero{
+    gap:30px;
+  }
+
+  .hero-left h2{
+    font-size:45px;
+  }
 }
+
+/* ================= MOBILE ================= */
+
 @media(max-width:700px){
-  nav{padding:18px;flex-wrap:wrap;gap:15px}
-  .menu{order:3;width:100%;justify-content:space-between;gap:8px}
-  .menu a{font-size:13px}
-  .hero{grid-template-columns:1fr;padding:40px 6%}
-  .hero-left h2{font-size:38px}
-  .hero-right{min-height:300px}
-  .class-grid{grid-template-columns:1fr}
-  .section-title{font-size:26px}
+
+  body{
+    background:var(--cream);
+  }
+
+  nav{
+    min-height:auto;
+    padding:12px 16px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:10px;
+    position:relative;
+  }
+
+  .logo-icon{
+    width:42px;
+    height:42px;
+    font-size:22px;
+    border-radius:12px;
+  }
+
+  .logo-text h1{
+    font-size:23px;
+  }
+
+  .logo-text p{
+    font-size:9px;
+    letter-spacing:1px;
+  }
+
+  .login-btn{
+    padding:10px 12px;
+    font-size:12px;
+  }
+
+  .menu{
+    grid-column:1 / -1;
+    width:100%;
+    display:flex;
+    justify-content:flex-start;
+    overflow-x:auto;
+    gap:20px;
+    padding:3px 0 0;
+    scrollbar-width:none;
+  }
+
+  .menu::-webkit-scrollbar{
+    display:none;
+  }
+
+  .menu li{
+    flex:0 0 auto;
+  }
+
+  .menu a{
+    display:block;
+    font-size:13px;
+    padding:10px 0 9px;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    min-height:auto;
+    padding:36px 18px 42px;
+    gap:28px;
+  }
+
+  .hero-left h2{
+    font-size:38px;
+    letter-spacing:-.8px;
+  }
+
+  .tagline{
+    font-size:21px;
+  }
+
+  .hero-description{
+    font-size:16px;
+  }
+
+  .features{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .feature{
+    min-height:82px;
+    padding:10px;
+  }
+
+  .feature-icon{
+    font-size:23px;
+  }
+
+  .feature-text{
+    font-size:12px;
+  }
+
+  .start-btn{
+    width:100%;
+    padding:16px;
+  }
+
+  .hero-right{
+    min-height:250px;
+    border-width:5px;
+    border-radius:18px;
+  }
+
+  .classes{
+    padding:52px 0 58px;
+    text-align:center;
+  }
+
+  .classes > .section-small,
+  .classes > .section-title{
+    margin-left:18px;
+    margin-right:18px;
+  }
+
+  .section-small{
+    font-size:12px;
+  }
+
+  .section-title{
+    font-size:27px;
+    line-height:1.25;
+    margin-bottom:26px;
+  }
+
+  /* Horizontal, swipeable Class 9–12 cards */
+  .class-grid{
+    display:flex;
+    overflow-x:auto;
+    gap:14px;
+    padding:5px 18px 20px;
+    scroll-snap-type:x mandatory;
+    scroll-padding-left:18px;
+    scrollbar-width:none;
+  }
+
+  .class-grid::-webkit-scrollbar{
+    display:none;
+  }
+
+  .class-card{
+    flex:0 0 82%;
+    min-height:235px;
+    scroll-snap-align:start;
+    padding:28px 18px 22px;
+  }
+
+  .class-icon{
+    width:66px;
+    height:66px;
+    font-size:32px;
+    border-radius:18px;
+  }
+
+  .explore-btn{
+    width:100%;
+  }
+
+  .contact-section{
+    padding:52px 18px 38px;
+  }
+
+  .contact-heading h2{
+    font-size:28px;
+    line-height:1.25;
+  }
+
+  .contact-heading p{
+    font-size:16px;
+  }
+
+  .contact-buttons{
+    grid-template-columns:1fr;
+    margin-bottom:40px;
+  }
+
+  .contact-btn{
+    min-height:56px;
+  }
+
+  .benefits{
+    grid-template-columns:1fr 1fr;
+    gap:20px 12px;
+  }
+
+  .benefit{
+    align-items:flex-start;
+  }
+
+  .benefit-icon{
+    width:38px;
+    height:38px;
+    min-width:38px;
+  }
+
+  .benefit-text h3{
+    font-size:14px;
+  }
+
+  .benefit-text p{
+    font-size:12px;
+    line-height:1.4;
+  }
+
+  .question-box{
+    flex-direction:column;
+    text-align:center;
+    padding:22px 18px;
+  }
+
+  .question-btn{
+    width:100%;
+  }
+
+  footer{
+    padding:20px 14px;
+    font-size:13px;
+  }
 }
+
+
+/* ================= MOBILE-ONLY REFINEMENTS ================= */
+@media(max-width:700px){
+
+  /* Keep the top BET logo clearly visible on the dark mobile header */
+  nav .logo-text h1{
+    color:#f5efe5 !important;
+    text-shadow:0 1px 0 rgba(0,0,0,.25);
+  }
+
+  nav .logo-text p{
+    color:#d3a84f !important;
+  }
+
+  /* Compact hero heading: less oversized and cleaner on a phone */
+  .hero-left h2{
+    font-size:34px;
+    line-height:1.14;
+    letter-spacing:-.5px;
+    margin-bottom:12px;
+  }
+
+  .hero-left h2 span{
+    display:inline;
+  }
+
+  .tagline{
+    font-size:20px;
+    margin-bottom:14px;
+  }
+
+  /* Keep feature cards in a single horizontal row with swipe if needed */
+  .features{
+    display:flex;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    gap:10px;
+    padding-bottom:5px;
+    scrollbar-width:none;
+  }
+
+  .features::-webkit-scrollbar{
+    display:none;
+  }
+
+  .feature{
+    flex:0 0 128px;
+    min-height:82px;
+  }
+
+  /* No large image block after the Start Practicing button on mobile */
+  .hero-right{
+    display:none;
+  }
+
+  .hero{
+    padding-bottom:36px;
+  }
+
+  /* Remove the bottom question card only on mobile */
+  .question-box{
+    display:none;
+  }
+
+  .contact-section{
+    padding-bottom:40px;
+  }
+}
+
+
+
+/* ================= FINAL MOBILE CARD SIZING FIX ================= */
+@media (max-width:700px){
+
+  /* Keep the page inside the phone width */
+  html, body{
+    max-width:100%;
+    overflow-x:hidden !important;
+  }
+
+  /* HERO: make the four benefit cards compact and fit in one row */
+  .features{
+    display:grid !important;
+    grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
+    gap:7px !important;
+    overflow:visible !important;
+    width:100% !important;
+    padding:0 !important;
+  }
+
+  .feature{
+    min-width:0 !important;
+    width:auto !important;
+    min-height:92px !important;
+    padding:10px 4px !important;
+    border-radius:14px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+    align-items:center !important;
+    text-align:center !important;
+  }
+
+  .feature .icon,
+  .feature-icon{
+    font-size:24px !important;
+    margin-bottom:5px !important;
+  }
+
+  .feature h3,
+  .feature strong{
+    font-size:12px !important;
+    line-height:1.22 !important;
+    margin:0 !important;
+  }
+
+  .feature p{
+    font-size:10px !important;
+    line-height:1.15 !important;
+    margin:3px 0 0 !important;
+  }
+
+  /* Reduce overall hero height */
+  .hero,
+  .hero-content{
+    min-height:auto !important;
+  }
+
+  .hero-left{
+    width:100% !important;
+  }
+
+  /* CLASS CARDS: compact horizontal strip instead of oversized cards */
+  .classes-grid,
+  .class-grid,
+  .class-cards{
+    display:grid !important;
+    grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
+    gap:7px !important;
+    overflow:visible !important;
+    width:100% !important;
+  }
+
+  .class-card{
+    min-width:0 !important;
+    width:auto !important;
+    min-height:142px !important;
+    padding:12px 5px !important;
+    border-radius:15px !important;
+  }
+
+  .class-icon{
+    width:46px !important;
+    height:46px !important;
+    margin:0 auto 9px !important;
+    font-size:24px !important;
+  }
+
+  .class-card h3{
+    font-size:17px !important;
+    line-height:1.1 !important;
+    margin:0 0 5px !important;
+  }
+
+  .class-card p{
+    font-size:10px !important;
+    line-height:1.15 !important;
+    margin:0 0 9px !important;
+  }
+
+  .class-card .btn,
+  .class-card a{
+    font-size:10px !important;
+    padding:7px 4px !important;
+    min-height:auto !important;
+    white-space:nowrap !important;
+  }
+
+  /* Remove large empty spacing below class area */
+  .classes,
+  .class-section{
+    padding-bottom:34px !important;
+  }
+}
+
+
+
+/* ================= FINAL MOBILE 1 x 4 CARD LAYOUT ================= */
+@media (max-width:700px){
+
+  html, body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden !important;
+  }
+
+  /* HERO BENEFITS: exactly 4 compact cards in one row */
+  .features{
+    display:grid !important;
+    grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
+    gap:7px !important;
+    width:100% !important;
+    overflow:visible !important;
+    padding:0 !important;
+  }
+
+  .feature{
+    min-width:0 !important;
+    width:100% !important;
+    min-height:92px !important;
+    padding:9px 3px !important;
+    border-radius:13px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+    align-items:center !important;
+    text-align:center !important;
+  }
+
+  .feature .icon,
+  .feature-icon{
+    font-size:22px !important;
+    margin-bottom:4px !important;
+  }
+
+  .feature h3,
+  .feature strong{
+    font-size:11px !important;
+    line-height:1.15 !important;
+    margin:0 !important;
+  }
+
+  .feature p{
+    font-size:9px !important;
+    line-height:1.12 !important;
+    margin:3px 0 0 !important;
+  }
+
+  /* CLASS BLOCKS: keep the previous horizontal swipe layout */
+  .classes-grid,
+  .class-grid,
+  .class-cards{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    gap:14px !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    scroll-snap-type:x mandatory !important;
+    -webkit-overflow-scrolling:touch !important;
+    padding:4px 4px 14px !important;
+    width:100% !important;
+    scrollbar-width:none !important;
+  }
+
+  .classes-grid::-webkit-scrollbar,
+  .class-grid::-webkit-scrollbar,
+  .class-cards::-webkit-scrollbar{
+    display:none !important;
+  }
+
+  .class-card{
+    flex:0 0 78% !important;
+    min-width:78% !important;
+    max-width:78% !important;
+    min-height:270px !important;
+    padding:24px 18px !important;
+    scroll-snap-align:start !important;
+    border-radius:20px !important;
+  }
+
+  .class-icon{
+    width:70px !important;
+    height:70px !important;
+    font-size:36px !important;
+    margin:0 auto 14px !important;
+  }
+
+  .class-card h3{
+    font-size:30px !important;
+    margin-bottom:8px !important;
+  }
+
+  .class-card p{
+    font-size:16px !important;
+    margin-bottom:18px !important;
+  }
+
+  .class-card .btn,
+  .class-card a{
+    font-size:16px !important;
+    padding:12px 10px !important;
+  }
+
+  /* BOTTOM BENEFITS: exactly 4 compact items in one row */
+  .benefits,
+  .benefits-grid,
+  .why-grid,
+  .bottom-features{
+    display:grid !important;
+    grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
+    gap:7px !important;
+    width:100% !important;
+    padding:0 !important;
+  }
+
+  .benefit,
+  .benefit-item,
+  .why-item{
+    min-width:0 !important;
+    width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    text-align:center !important;
+    padding:6px 2px !important;
+  }
+
+  .benefit-icon,
+  .benefit .icon,
+  .benefit-item .icon,
+  .why-item .icon{
+    width:44px !important;
+    height:44px !important;
+    min-width:44px !important;
+    border-radius:50% !important;
+    font-size:19px !important;
+    margin-bottom:5px !important;
+  }
+
+  .benefit h3,
+  .benefit-item h3,
+  .why-item h3{
+    font-size:11px !important;
+    line-height:1.18 !important;
+    margin:0 0 4px !important;
+  }
+
+  .benefit p,
+  .benefit-item p,
+  .why-item p{
+    font-size:9px !important;
+    line-height:1.2 !important;
+    margin:0 !important;
+  }
+
+  .hero,
+  .classes,
+  .class-section,
+  .contact-section{
+    padding-top:34px !important;
+    padding-bottom:34px !important;
+  }
+}
+
+/* ================= MOBILE FINAL COMPACT REFINEMENT ================= */
+@media (max-width:700px){
+
+  /* Remove excess vertical whitespace around the lower feature section */
+  .benefits,
+  .benefits-grid,
+  .why-grid,
+  .bottom-features{
+    margin-top:8px !important;
+    margin-bottom:4px !important;
+    gap:6px !important;
+  }
+
+  /* Make bottom cards match the compact hero-card model */
+  .benefit,
+  .benefit-item,
+  .why-item{
+    min-height:92px !important;
+    padding:8px 3px !important;
+    border-radius:13px !important;
+    justify-content:center !important;
+  }
+
+  .benefit-icon,
+  .benefit .icon,
+  .benefit-item .icon,
+  .why-item .icon{
+    width:auto !important;
+    height:auto !important;
+    min-width:0 !important;
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+    font-size:22px !important;
+    margin:0 0 5px !important;
+  }
+
+  .benefit h3,
+  .benefit-item h3,
+  .why-item h3{
+    font-size:11px !important;
+    line-height:1.15 !important;
+    margin:0 !important;
+  }
+
+  /* Hide detailed descriptions in the compact 1 x 4 mobile cards */
+  .benefit p,
+  .benefit-item p,
+  .why-item p{
+    display:none !important;
+  }
+
+  /* Tighten surrounding mobile section spacing */
+  .hero + section,
+  .classes,
+  .class-section,
+  .contact-section{
+    margin-top:0 !important;
+  }
+
+  section{
+    padding-top:28px !important;
+    padding-bottom:28px !important;
+  }
+}
+
+
+/* ================= MOBILE BOTTOM FEATURES - FINAL POLISH ================= */
+@media (max-width:700px){
+
+  /* Four compact bottom feature boxes */
+  .benefits,
+  .benefits-grid,
+  .why-grid,
+  .bottom-features{
+    gap:6px !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  .benefit,
+  .benefit-item,
+  .why-item{
+    min-height:86px !important;
+    padding:8px 3px !important;
+    border:1px solid rgba(184, 142, 58, 0.42) !important;
+    background:rgba(255,255,255,0.16) !important;
+    border-radius:12px !important;
+  }
+
+  /* Reduce the empty vertical space before the footer */
+  .benefits,
+  .benefits-grid,
+  .why-grid,
+  .bottom-features{
+    margin-bottom:-10px !important;
+  }
+
+  .benefit-icon,
+  .benefit .icon,
+  .benefit-item .icon,
+  .why-item .icon{
+    margin-bottom:3px !important;
+  }
+
+  .benefit h3,
+  .benefit-item h3,
+  .why-item h3{
+    margin:0 !important;
+    font-size:10.5px !important;
+    line-height:1.12 !important;
+  }
+}
+
 </style>
 </head>
+
 <body>
 
+<!-- NAVIGATION -->
 <nav>
   <div class="logo">
     <div class="logo-icon">🎓</div>
-    <div class="logo-text"><h1>BET</h1><p>MATHS MASTERCLASS</p></div>
+    <div class="logo-text">
+      <h1>BET</h1>
+      <p>MASTERCLASS</p>
+    </div>
   </div>
+
   <ul class="menu">
     <li><a class="active" href="#">Home</a></li>
     <li><a href="#classes">Classes⌄</a></li>
-    <li><a href="#">Tests</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Contact Us</a></li>
+    <li><a href="#classes">Tests</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#contact">Contact Us</a></li>
   </ul>
+
   <a href="#" class="login-btn">👤 Login / Register</a>
 </nav>
 
+<!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-left">
-    <h2>WELCOME TO<br><span>BET MATHS MASTERCLASS</span></h2>
-    <p class="tagline">From Basics to Mastery</p>
-    <p class="hero-description">Practice unlimited tests, strengthen your concepts, analyze your performance and achieve excellence in Mathematics.</p>
+    <h2>WELCOME TO<br><span>BET MASTERCLASS</span></h2>
+
+    <p class="tagline">Learn. Practice. Achieve.</p>
+
+    <p class="hero-description">
+      Practice unlimited tests, strengthen your concepts,
+      analyze your performance and build confidence at every step.
+    </p>
+
     <div class="features">
-      <div class="feature"><div class="feature-icon">👥</div><div class="feature-text">3000+<br>Students</div></div>
-      <div class="feature"><div class="feature-icon">🏆</div><div class="feature-text">High Quality<br>Tests</div></div>
-      <div class="feature"><div class="feature-icon">📈</div><div class="feature-text">Improve<br>Performance</div></div>
-      <div class="feature"><div class="feature-icon">🎯</div><div class="feature-text">Achieve<br>Your Goals</div></div>
+      <div class="feature">
+        <div class="feature-icon">👥</div>
+        <div class="feature-text">3000+<br>Students</div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🏆</div>
+        <div class="feature-text">High Quality<br>Tests</div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📈</div>
+        <div class="feature-text">Improve<br>Performance</div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-text">Achieve<br>Your Goals</div>
+      </div>
     </div>
+
     <a href="#classes" class="start-btn">🚀 START PRACTICING NOW</a>
   </div>
+
   <div class="hero-right"></div>
 </section>
 
+<!-- CLASSES SECTION -->
 <section class="classes" id="classes">
   <p class="section-small">─── CHOOSE YOUR CLASS ───</p>
+
   <h2 class="section-title">Select Your Class and Start Your Journey</h2>
+
   <div class="class-grid">
-    <div class="class-card"><div class="class-icon">📖</div><h3>CLASS 9</h3><p>Practice Tests</p><a href="#" class="explore-btn">Explore →</a></div>
-    <div class="class-card"><div class="class-icon">✏️</div><h3>CLASS 10</h3><p>Practice Tests</p><a href="#" class="explore-btn">Explore →</a></div>
-    <div class="class-card"><div class="class-icon">🧮</div><h3>CLASS 11</h3><p>Practice Tests</p><a href="#" class="explore-btn">Explore →</a></div>
-    <div class="class-card"><div class="class-icon">🎓</div><h3>CLASS 12</h3><p>Practice Tests</p><a href="#" class="explore-btn">Explore →</a></div>
+
+    <div class="class-card">
+      <div class="class-icon">📖</div>
+      <h3>CLASS 9</h3>
+      <p>Practice Tests</p>
+      <a href="class9.html" class="explore-btn">Explore →</a>
+    </div>
+
+    <div class="class-card">
+      <div class="class-icon">✏️</div>
+      <h3>CLASS 10</h3>
+      <p>Practice Tests</p>
+      <a href="class10.html" class="explore-btn">Explore →</a>
+    </div>
+
+    <div class="class-card">
+      <div class="class-icon">🧮</div>
+      <h3>CLASS 11</h3>
+      <p>Practice Tests</p>
+      <a href="class11.html" class="explore-btn">Explore →</a>
+    </div>
+
+    <div class="class-card">
+      <div class="class-icon">🎓</div>
+      <h3>CLASS 12</h3>
+      <p>Practice Tests</p>
+      <a href="class12.html" class="explore-btn">Explore →</a>
+    </div>
+
   </div>
 </section>
+
+<!-- ABOUT / CONTACT SECTION -->
+<section class="contact-section" id="about">
+
+  <div class="contact-heading">
+    <h2>Ready to Start Your Learning Journey?</h2>
+    <p>
+      Practice chapter-wise tests, improve your skills,
+      track your progress and move forward with BET MasterClass.
+    </p>
+  </div>
+
+  <!-- CONTACT BUTTONS -->
+  <div class="contact-buttons" id="contact">
+    <a href="mailto:YOUR_EMAIL@gmail.com" class="contact-btn">✉️ Email Us</a>
+    <a href="https://wa.me/YOUR_NUMBER" class="contact-btn">💬 WhatsApp</a>
+    <a href="#classes" class="contact-btn">🚀 Start Practicing</a>
+  </div>
+
+  <!-- BENEFITS -->
+  <div class="benefits">
+    <div class="benefit">
+      <div class="benefit-icon">⏱</div>
+      <div class="benefit-text">
+        <h3>Practice Anytime</h3>
+        <p>Learn at your own pace</p>
+      </div>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon">✓</div>
+      <div class="benefit-text">
+        <h3>Improve Accuracy</h3>
+        <p>Practice and reduce mistakes</p>
+      </div>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon">📊</div>
+      <div class="benefit-text">
+        <h3>Track Progress</h3>
+        <p>Understand your performance</p>
+      </div>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon">🎯</div>
+      <div class="benefit-text">
+        <h3>Achieve Your Goals</h3>
+        <p>Build confidence and succeed</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUESTION BOX -->
+  <div class="question-box">
+    <div class="question-text">
+      <h3>Have a question about BET MasterClass?</h3>
+      <p>Contact us and we will help you get started.</p>
+    </div>
+
+    <a href="https://wa.me/YOUR_NUMBER" class="question-btn">
+      Ask Us on WhatsApp →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 <span>BET MasterClass</span> | Learn. Practice. Achieve.
+</footer>
 
 </body>
 </html>
