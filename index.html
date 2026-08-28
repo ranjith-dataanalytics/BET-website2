@@ -186,13 +186,13 @@ nav{
 
 .feature{
   min-height:92px;
-  padding:13px 10px;
+  padding:13px 18px;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
+  flex-direction:row;
+  justify-content:flex-start;
   align-items:center;
-  text-align:center;
-  gap:6px;
+  text-align:left;
+  gap:16px;
   background:#faf7f1;
   border:1px solid var(--border);
   border-radius:14px;
@@ -201,6 +201,7 @@ nav{
 
 .feature-icon{
   font-size:25px;
+  flex-shrink:0;
 }
 
 .feature-text{
@@ -837,31 +838,38 @@ footer span{
     padding:0 !important;
   }
 
+ @media (max-width:700px){
+
   .feature{
     min-width:0 !important;
-    width:auto !important;
+    width:100% !important;
     min-height:92px !important;
-    padding:10px 4px !important;
-    border-radius:14px !important;
+    padding:8px 10px !important;
+    border-radius:13px !important;
+
     display:flex !important;
-    flex-direction:column !important;
+    flex-direction:row !important;
     justify-content:center !important;
     align-items:center !important;
-    text-align:center !important;
+    text-align:left !important;
+    gap:7px !important;
   }
 
   .feature .icon,
   .feature-icon{
-    font-size:24px !important;
-    margin-bottom:5px !important;
+    font-size:22px !important;
+    margin:0 !important;
+    flex-shrink:0 !important;
   }
 
   .feature h3,
-  .feature strong{
-    font-size:12px !important;
-    line-height:1.22 !important;
+  .feature strong,
+  .feature-text{
+    font-size:11px !important;
+    line-height:1.15 !important;
     margin:0 !important;
   }
+}
 
   .feature p{
     font-size:10px !important;
