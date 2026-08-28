@@ -1,152 +1,1288 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Class 9 Tests | BET Maths Masterclass</title>
+
+<title>Class 9 Tests | BET MasterClass</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-html{scroll-behavior:smooth}
-body{background:#080d12;color:#f5f5f5}
+
+/* ================= ROOT COLORS - SAME AS HOMEPAGE ================= */
+
+:root{
+  --navy:#1d1c19;
+  --navy-2:#292824;
+  --navy-3:#37342d;
+
+  --blue:#c99b43;
+  --blue-dark:#a87925;
+
+  --sky:#e8dfcf;
+  --cream:#f2ede4;
+  --white:#faf7f1;
+
+  --text:#292722;
+  --muted:#6e685e;
+  --border:#d7cdbc;
+  --soft-blue:#ebe2d4;
+
+  --gold:#c99b43;
+
+  --shadow:0 14px 38px rgba(45,39,30,.14);
+}
+
+
+/* ================= RESET ================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  line-height:1.5;
+  overflow-x:hidden;
+}
+
+
+/* ================= HEADER ================= */
 
 header{
-    min-height:90px;display:flex;align-items:center;justify-content:space-between;
-    padding:14px 5%;border-bottom:1px solid #27313a;background:#080d12;
-    position:sticky;top:0;z-index:10
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  padding:0 5%;
+
+  background:rgba(29,28,25,.97);
+  border-bottom:1px solid #3d3a34;
+
+  position:sticky;
+  top:0;
+  z-index:100;
+
+  backdrop-filter:blur(12px);
 }
-.logo{display:flex;align-items:center;gap:13px}
-.logo-icon{font-size:32px}
-.logo-text h1{color:#f7bd43;font-size:27px;letter-spacing:2px}
-.logo-text p{font-size:12px;font-weight:bold;color:#ddd;margin-top:2px}
-nav a{color:#ddd;text-decoration:none;margin:0 15px;font-weight:bold}
-nav a:hover{color:#f7bd43}
 
-.page{max-width:1400px;margin:auto;padding:48px 5% 70px}
-.back{display:inline-block;color:#f7bd43;text-decoration:none;margin-bottom:32px;font-weight:bold}
-.back:hover{color:#ffd466}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+  text-decoration:none;
+}
 
-.top{text-align:center;margin-bottom:45px}
-.top span{color:#f7bd43;font-weight:bold;letter-spacing:2px}
-.top h1{font-size:42px;margin:15px 0}
-.top p{color:#bbb;font-size:18px}
+.logo-icon{
+  width:48px;
+  height:48px;
 
-.subject-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px}
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:14px;
+  font-size:25px;
+
+  background:var(--blue);
+
+  box-shadow:0 8px 20px rgba(201,155,67,.20);
+}
+
+.logo-text h1{
+  color:#f5efe5;
+  font-size:27px;
+  line-height:1.05;
+  letter-spacing:-.5px;
+}
+
+.logo-text p{
+  font-size:11px;
+  font-weight:700;
+  color:var(--blue);
+  letter-spacing:1.2px;
+  margin-top:3px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+}
+
+nav a{
+  color:#e7e0d4;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:700;
+  padding:29px 0 25px;
+  border-bottom:3px solid transparent;
+  white-space:nowrap;
+  transition:.25s;
+}
+
+nav a:hover,
+nav a.active{
+  color:var(--blue);
+  border-bottom-color:var(--blue);
+}
+
+
+/* ================= PAGE ================= */
+
+.page{
+  max-width:1300px;
+  margin:auto;
+  padding:48px 5% 65px;
+}
+
+
+/* ================= BACK BUTTON ================= */
+
+.back{
+  display:inline-block;
+  color:var(--blue);
+  text-decoration:none;
+  margin-bottom:32px;
+  font-weight:700;
+  transition:.25s;
+}
+
+.back:hover{
+  color:var(--blue-dark);
+}
+
+
+/* ================= PAGE HEADING ================= */
+
+.top{
+  text-align:center;
+  margin-bottom:38px;
+}
+
+.top span{
+  color:var(--blue);
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:1.5px;
+}
+
+.top h1{
+  color:var(--navy);
+  font-size:42px;
+  margin:12px 0;
+  letter-spacing:-.6px;
+}
+
+.top p{
+  color:var(--muted);
+  font-size:18px;
+}
+
+
+/* ================= DESKTOP SUBJECT GRID ================= */
+
+.subject-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:20px;
+  max-width:1200px;
+  margin:auto;
+}
+
+
+/* ================= SUBJECT CARD ================= */
+
 .subject-card{
-    background:#151d23;border:1px solid #2d3b46;border-radius:15px;
-    padding:32px;text-align:center;transition:.25s
+  background:#fffdf9;
+  border:1px solid var(--border);
+  border-radius:18px;
+
+  padding:26px 22px 22px;
+
+  text-align:center;
+
+  box-shadow:var(--shadow);
+
+  transition:.25s;
 }
-.subject-card:hover{transform:translateY(-4px);border-color:#d99c28}
-.subject-icon{font-size:45px;margin-bottom:13px}
-.subject-card h2{font-size:25px;color:#f7bd43;margin-bottom:22px}
+
+.subject-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--blue);
+  box-shadow:0 18px 40px rgba(45,39,30,.18);
+}
+
+.subject-icon{
+  width:64px;
+  height:64px;
+
+  margin:0 auto 13px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:32px;
+
+  border-radius:18px;
+
+  background:var(--soft-blue);
+}
+
+.subject-card h2{
+  color:var(--navy);
+  font-size:22px;
+  margin-bottom:18px;
+}
+
+
+/* ================= BUTTONS ================= */
 
 .test-btn{
-    display:block;width:100%;padding:15px;margin:12px 0;
-    background:linear-gradient(90deg,#d99c28,#ffd466);
-    color:#111;text-decoration:none;border-radius:8px;font-weight:bold
-}
-.test-btn:hover{filter:brightness(1.06)}
-.more-btn{
-    display:block;width:100%;padding:14px;margin-top:18px;
-    border:1px solid #d99c28;color:#f7bd43;text-decoration:none;
-    border-radius:8px;font-weight:bold
-}
-.more-btn:hover{background:#d99c28;color:#111}
+  display:block;
+  width:100%;
 
-.note{max-width:700px;margin:40px auto 0;text-align:center;color:#aeb8c2;font-size:14px}
-footer{text-align:center;padding:24px;border-top:1px solid #27313a;color:#89939d;font-size:14px}
+  padding:13px;
+  margin:10px 0;
+
+  background:var(--blue);
+  color:var(--white);
+
+  text-decoration:none;
+
+  border-radius:10px;
+
+  font-size:14px;
+  font-weight:700;
+
+  box-shadow:0 7px 18px rgba(201,155,67,.18);
+
+  transition:.25s;
+}
+
+.test-btn:hover{
+  background:var(--blue-dark);
+  transform:translateY(-1px);
+}
+
+.more-btn{
+  display:block;
+  width:100%;
+
+  padding:12px;
+  margin-top:15px;
+
+  border:1px solid var(--blue);
+
+  color:var(--blue);
+  background:#f5efe6;
+
+  text-decoration:none;
+
+  border-radius:10px;
+
+  font-size:14px;
+  font-weight:700;
+
+  transition:.25s;
+}
+
+.more-btn:hover{
+  background:var(--blue);
+  color:var(--white);
+}
+
+
+/* ================= CENTER FINAL TWO CARDS ================= */
+
+/* Tamil */
+.subject-card:nth-child(4){
+  grid-column:1 / span 1;
+  transform:translateX(50%);
+}
+
+/* English */
+.subject-card:nth-child(5){
+  grid-column:2 / span 1;
+  transform:translateX(50%);
+}
+
+.subject-card:nth-child(4):hover{
+  transform:translateX(50%) translateY(-5px);
+}
+
+.subject-card:nth-child(5):hover{
+  transform:translateX(50%) translateY(-5px);
+}
+
+
+/* ================= MOBILE SLIDER DOTS ================= */
+
+.slider-dots{
+  display:none;
+}
+
+
+/* ================= NOTE ================= */
+
+.note{
+  max-width:700px;
+  margin:35px auto 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+}
+
+
+/* ================= CONTACT SECTION ================= */
+
+.contact-section{
+  background:linear-gradient(180deg,#e9dfd0 0%,#ddd0bf 100%);
+  padding:70px 5% 50px;
+}
+
+.contact-heading{
+  text-align:center;
+  margin-bottom:34px;
+}
+
+.contact-heading h2{
+  font-size:34px;
+  margin-bottom:12px;
+  color:var(--navy);
+}
+
+.contact-heading p{
+  font-size:17px;
+  color:var(--muted);
+  max-width:750px;
+  margin:auto;
+  line-height:1.65;
+}
+
+
+/* ================= CONTACT BUTTONS ================= */
+
+.contact-buttons{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  max-width:900px;
+  margin:0 auto 50px;
+}
+
+.contact-btn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  min-height:60px;
+  padding:15px;
+
+  background:var(--white);
+  color:#4d473e;
+
+  text-decoration:none;
+
+  font-size:16px;
+  font-weight:700;
+
+  border:1px solid var(--border);
+  border-radius:12px;
+
+  box-shadow:0 6px 18px rgba(50,90,130,.05);
+
+  transition:.25s;
+}
+
+.contact-btn:hover{
+  border-color:var(--blue);
+  color:var(--blue);
+  transform:translateY(-3px);
+}
+
+
+/* ================= BENEFITS ================= */
+
+.benefits{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+  max-width:1200px;
+  margin:0 auto 45px;
+}
+
+.benefit{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.benefit-icon{
+  width:42px;
+  height:42px;
+  min-width:42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border:1px solid #cbbca7;
+  background:var(--white);
+
+  border-radius:50%;
+
+  color:var(--blue);
+  font-weight:700;
+}
+
+.benefit-text h3{
+  font-size:15px;
+  color:var(--navy);
+  margin-bottom:3px;
+}
+
+.benefit-text p{
+  font-size:13px;
+  color:var(--muted);
+}
+
+
+/* ================= QUESTION BOX ================= */
+
+.question-box{
+  max-width:950px;
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:20px;
+
+  padding:24px 26px;
+
+  border:1px solid #cbbca7;
+  border-radius:18px;
+
+  background:var(--white);
+
+  box-shadow:0 10px 28px rgba(35,72,108,.08);
+}
+
+.question-text h3{
+  color:var(--navy);
+  font-size:18px;
+  margin-bottom:6px;
+}
+
+.question-text p{
+  color:var(--muted);
+}
+
+.question-btn{
+  background:var(--blue);
+  color:var(--white);
+
+  padding:14px 22px;
+
+  border-radius:10px;
+
+  text-decoration:none;
+  font-weight:700;
+
+  white-space:nowrap;
+
+  box-shadow:0 8px 18px rgba(201,155,67,.18);
+
+  transition:.25s;
+}
+
+.question-btn:hover{
+  background:var(--blue-dark);
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+  text-align:center;
+  padding:24px;
+  background:#211f1b;
+  color:#d8d0c3;
+  font-size:14px;
+}
+
+footer span{
+  color:#ffffff;
+  font-weight:700;
+}
+
+
+/* ================= TABLET ================= */
+
+@media(max-width:1000px){
+
+  .subject-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    max-width:850px;
+  }
+
+  /* Reset desktop centered positioning */
+  .subject-card:nth-child(4),
+  .subject-card:nth-child(5){
+    transform:none;
+  }
+
+  .subject-card:nth-child(4):hover,
+  .subject-card:nth-child(5):hover{
+    transform:translateY(-5px);
+  }
+
+  .subject-card:nth-child(4){
+    grid-column:auto;
+  }
+
+  .subject-card:nth-child(5){
+    grid-column:1 / -1;
+    width:calc(50% - 10px);
+    justify-self:center;
+  }
+
+  .benefits{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+
+/* ================= MOBILE ================= */
 
 @media(max-width:700px){
-    header{flex-direction:column;gap:13px}
-    nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-    nav a{margin:0 7px;font-size:14px}
-    .page{padding:30px 18px 50px}
-    .top h1{font-size:31px}
-    .subject-grid{grid-template-columns:1fr}
+
+  body{
+    background:var(--cream);
+  }
+
+  header{
+    min-height:auto;
+    padding:12px 16px;
+
+    display:grid;
+    grid-template-columns:1fr;
+
+    gap:10px;
+
+    position:relative;
+  }
+
+  .logo{
+    justify-self:center;
+  }
+
+  .logo-icon{
+    width:42px;
+    height:42px;
+    font-size:22px;
+    border-radius:12px;
+  }
+
+  .logo-text h1{
+    font-size:23px;
+  }
+
+  .logo-text p{
+    font-size:9px;
+    letter-spacing:1px;
+  }
+
+  nav{
+    width:100%;
+    display:flex;
+    justify-content:flex-start;
+
+    overflow-x:auto;
+
+    gap:20px;
+
+    padding:3px 0 0;
+
+    scrollbar-width:none;
+  }
+
+  nav::-webkit-scrollbar{
+    display:none;
+  }
+
+  nav a{
+    flex:0 0 auto;
+    font-size:13px;
+    padding:10px 0 9px;
+  }
+
+
+  /* PAGE */
+
+  .page{
+    padding:30px 0 50px;
+  }
+
+  .back{
+    margin-left:18px;
+    margin-bottom:25px;
+    font-size:14px;
+  }
+
+  .top{
+    margin:0 18px 28px;
+  }
+
+  .top span{
+    font-size:12px;
+  }
+
+  .top h1{
+    font-size:31px;
+    line-height:1.2;
+    margin:10px 0;
+  }
+
+  .top p{
+    font-size:16px;
+  }
+
+
+  /* ================= MOBILE HORIZONTAL SLIDER ================= */
+
+  .subject-grid{
+    display:flex;
+
+    gap:14px;
+
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    padding:5px 11% 12px;
+
+    width:100%;
+
+    scroll-snap-type:x mandatory;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+
+    max-width:none;
+  }
+
+  .subject-grid::-webkit-scrollbar{
+    display:none;
+  }
+
+  .subject-card,
+  .subject-card:nth-child(4),
+  .subject-card:nth-child(5){
+
+    flex:0 0 78%;
+
+    width:78%;
+    min-width:78%;
+    max-width:78%;
+
+    min-height:auto;
+
+    grid-column:auto;
+
+    transform:none;
+
+    padding:26px 20px 22px;
+
+    scroll-snap-align:center;
+
+    border-radius:18px;
+  }
+
+  .subject-card:hover,
+  .subject-card:nth-child(4):hover,
+  .subject-card:nth-child(5):hover{
+    transform:none;
+  }
+
+  .subject-icon{
+    width:64px;
+    height:64px;
+    font-size:32px;
+    border-radius:18px;
+  }
+
+  .subject-card h2{
+    font-size:21px;
+  }
+
+
+  /* ================= SLIDER DOTS ================= */
+
+  .slider-dots{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:7px;
+
+    margin:6px 0 0;
+  }
+
+  .dot{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#b7aa97;
+
+    transition:.25s;
+  }
+
+  .dot.active{
+    width:20px;
+
+    border-radius:10px;
+
+    background:var(--blue);
+  }
+
+
+  .note{
+    margin:28px 18px 0;
+    font-size:13px;
+  }
+
+
+  /* ================= CONTACT ================= */
+
+  .contact-section{
+    padding:52px 18px 38px;
+  }
+
+  .contact-heading h2{
+    font-size:28px;
+    line-height:1.25;
+  }
+
+  .contact-heading p{
+    font-size:16px;
+  }
+
+  .contact-buttons{
+    grid-template-columns:1fr;
+    margin-bottom:40px;
+  }
+
+  .contact-btn{
+    min-height:56px;
+  }
+
+
+  /* ================= MOBILE BENEFITS ================= */
+
+  .benefits{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:6px;
+    margin:0 0 32px;
+  }
+
+  .benefit{
+    min-width:0;
+
+    min-height:86px;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:8px 3px;
+
+    border:1px solid rgba(184,142,58,.42);
+
+    background:rgba(255,255,255,.16);
+
+    border-radius:12px;
+  }
+
+  .benefit-icon{
+    width:auto;
+    height:auto;
+    min-width:0;
+
+    background:transparent;
+    border:none;
+
+    font-size:22px;
+
+    margin:0 0 5px;
+  }
+
+  .benefit-text h3{
+    font-size:10.5px;
+    line-height:1.12;
+    margin:0;
+  }
+
+  .benefit-text p{
+    display:none;
+  }
+
+
+  /* ================= QUESTION ================= */
+
+  .question-box{
+    flex-direction:column;
+    text-align:center;
+
+    padding:22px 18px;
+  }
+
+  .question-btn{
+    width:100%;
+  }
+
+  footer{
+    padding:20px 14px;
+    font-size:13px;
+  }
 }
+
 </style>
+
 </head>
 
 <body>
 
-<header>
-    <a href="index.html" class="logo" style="text-decoration:none">
-        <div class="logo-icon">🎓</div>
-        <div class="logo-text">
-            <h1>BET</h1>
-            <p>MATHS MASTERCLASS</p>
-        </div>
-    </a>
+<!-- ================= HEADER ================= -->
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#classes">Classes</a>
-        <a href="#tests">Tests</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
-    </nav>
+<header>
+
+  <a href="index.html" class="logo">
+
+```
+<div class="logo-icon">🎓</div>
+
+<div class="logo-text">
+  <h1>BET</h1>
+  <p>MASTERCLASS</p>
+</div>
+```
+
+  </a>
+
+  <nav>
+
+```
+<a href="index.html">Home</a>
+
+<a href="index.html#classes">Classes⌄</a>
+
+<a href="#tests" class="active">Tests</a>
+
+<a href="index.html#about">About Us</a>
+
+<a href="index.html#contact">Contact Us</a>
+```
+
+  </nav>
+
 </header>
 
+<!-- ================= MAIN ================= -->
+
 <main class="page">
-    <a href="index.html#classes" class="back">← BACK TO CLASSES</a>
 
-    <div class="top">
-        <span>━━━━ CLASS 9 ━━━━</span>
-        <h1>Class 9 Practice Tests</h1>
-        <p>Choose your subject and start practicing</p>
-    </div>
+  <a href="index.html#classes" class="back">
+    ← BACK TO CLASSES
+  </a>
 
-    <section class="subject-grid" id="tests">
+  <div class="top">
 
-        <div class="subject-card">
-            <div class="subject-icon">➗</div>
-            <h2>MATHEMATICS</h2>
-            <!-- Replace # with your actual Google Form links -->
-            <a href="#" class="test-btn">FREE TEST - 1</a>
-            <a href="#" class="test-btn">FREE TEST - 2</a>
-            <a href="#" class="more-btn">MORE TESTS →</a>
-        </div>
+```
+<span>━━━ CLASS 9 ━━━</span>
 
-        <div class="subject-card">
-            <div class="subject-icon">🔬</div>
-            <h2>SCIENCE</h2>
-            <a href="#" class="test-btn">FREE TEST - 1</a>
-            <a href="#" class="test-btn">FREE TEST - 2</a>
-            <a href="#" class="more-btn">MORE TESTS →</a>
-        </div>
+<h1>Class 9 Practice Tests</h1>
 
-        <div class="subject-card">
-            <div class="subject-icon">🌍</div>
-            <h2>SOCIAL SCIENCE</h2>
-            <a href="#" class="test-btn">FREE TEST - 1</a>
-            <a href="#" class="test-btn">FREE TEST - 2</a>
-            <a href="#" class="more-btn">MORE TESTS →</a>
-        </div>
+<p>Choose your subject and start practicing</p>
+```
 
-        <div class="subject-card">
-            <div class="subject-icon">தமிழ்</div>
-            <h2>TAMIL</h2>
-            <a href="#" class="test-btn">FREE TEST - 1</a>
-            <a href="#" class="test-btn">FREE TEST - 2</a>
-            <a href="#" class="more-btn">MORE TESTS →</a>
-        </div>
+  </div>
 
-        <div class="subject-card">
-            <div class="subject-icon">🔤</div>
-            <h2>ENGLISH</h2>
-            <a href="#" class="test-btn">FREE TEST - 1</a>
-            <a href="#" class="test-btn">FREE TEST - 2</a>
-            <a href="#" class="more-btn">MORE TESTS →</a>
-        </div>
+  <!-- ================= SUBJECT CARDS ================= -->
 
-    </section>
+  <section class="subject-grid" id="tests">
 
-    <p class="note">
-        The first two tests are free. Replace each <strong>#</strong> link with the corresponding Google Form link.
-    </p>
+```
+<!-- MATHEMATICS -->
+
+<div class="subject-card">
+
+  <div class="subject-icon">➗</div>
+
+  <h2>MATHEMATICS</h2>
+
+  <a href="#" class="test-btn">FREE TEST - 1</a>
+
+  <a href="#" class="test-btn">FREE TEST - 2</a>
+
+  <a href="#" class="more-btn">MORE TESTS →</a>
+
+</div>
+
+
+
+<!-- SCIENCE -->
+
+<div class="subject-card">
+
+  <div class="subject-icon">🔬</div>
+
+  <h2>SCIENCE</h2>
+
+  <a href="#" class="test-btn">FREE TEST - 1</a>
+
+  <a href="#" class="test-btn">FREE TEST - 2</a>
+
+  <a href="#" class="more-btn">MORE TESTS →</a>
+
+</div>
+
+
+
+<!-- SOCIAL SCIENCE -->
+
+<div class="subject-card">
+
+  <div class="subject-icon">🌍</div>
+
+  <h2>SOCIAL SCIENCE</h2>
+
+  <a href="#" class="test-btn">FREE TEST - 1</a>
+
+  <a href="#" class="test-btn">FREE TEST - 2</a>
+
+  <a href="#" class="more-btn">MORE TESTS →</a>
+
+</div>
+
+
+
+<!-- TAMIL -->
+
+<div class="subject-card">
+
+  <div class="subject-icon">தமிழ்</div>
+
+  <h2>TAMIL</h2>
+
+  <a href="#" class="test-btn">FREE TEST - 1</a>
+
+  <a href="#" class="test-btn">FREE TEST - 2</a>
+
+  <a href="#" class="more-btn">MORE TESTS →</a>
+
+</div>
+
+
+
+<!-- ENGLISH -->
+
+<div class="subject-card">
+
+  <div class="subject-icon">🔤</div>
+
+  <h2>ENGLISH</h2>
+
+  <a href="#" class="test-btn">FREE TEST - 1</a>
+
+  <a href="#" class="test-btn">FREE TEST - 2</a>
+
+  <a href="#" class="more-btn">MORE TESTS →</a>
+
+</div>
+```
+
+  </section>
+
+  <!-- ================= MOBILE SLIDER DOTS ================= -->
+
+  <div class="slider-dots">
+
+```
+<span class="dot active"></span>
+
+<span class="dot"></span>
+
+<span class="dot"></span>
+
+<span class="dot"></span>
+
+<span class="dot"></span>
+```
+
+  </div>
+
+  <p class="note">
+    The first two tests are free. Replace each
+    <strong>#</strong> link with the corresponding test link.
+  </p>
+
 </main>
 
-<footer>© BET Maths Masterclass</footer>
+<!-- ================= CONTACT SECTION ================= -->
+
+<section class="contact-section" id="about">
+
+  <div class="contact-heading">
+
+```
+<h2>Ready to Start Your Learning Journey?</h2>
+
+<p>
+  Practice chapter-wise tests, improve your skills,
+  track your progress and move forward with BET MasterClass.
+</p>
+```
+
+  </div>
+
+  <!-- CONTACT BUTTONS -->
+
+  <div class="contact-buttons" id="contact">
+
+```
+<a href="mailto:YOUR_EMAIL@gmail.com" class="contact-btn">
+  ✉️ Email Us
+</a>
+
+<a href="https://wa.me/YOUR_NUMBER" class="contact-btn">
+  💬 WhatsApp
+</a>
+
+<a href="#tests" class="contact-btn">
+  🚀 Start Practicing
+</a>
+```
+
+  </div>
+
+  <!-- BENEFITS -->
+
+  <div class="benefits">
+
+```
+<div class="benefit">
+
+  <div class="benefit-icon">⏱</div>
+
+  <div class="benefit-text">
+    <h3>Practice Anytime</h3>
+    <p>Learn at your own pace</p>
+  </div>
+
+</div>
+
+
+
+<div class="benefit">
+
+  <div class="benefit-icon">✓</div>
+
+  <div class="benefit-text">
+    <h3>Improve Accuracy</h3>
+    <p>Practice and reduce mistakes</p>
+  </div>
+
+</div>
+
+
+
+<div class="benefit">
+
+  <div class="benefit-icon">📊</div>
+
+  <div class="benefit-text">
+    <h3>Track Progress</h3>
+    <p>Understand your performance</p>
+  </div>
+
+</div>
+
+
+
+<div class="benefit">
+
+  <div class="benefit-icon">🎯</div>
+
+  <div class="benefit-text">
+    <h3>Achieve Your Goals</h3>
+    <p>Build confidence and succeed</p>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- QUESTION BOX -->
+
+  <div class="question-box">
+
+```
+<div class="question-text">
+
+  <h3>Have a question about BET MasterClass?</h3>
+
+  <p>Contact us and we will help you get started.</p>
+
+</div>
+
+
+<a href="https://wa.me/YOUR_NUMBER" class="question-btn">
+  Ask Us on WhatsApp →
+</a>
+```
+
+  </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+© 2026 <span>BET MasterClass</span> | From Basics To Mastery
+
+</footer>
+
+<!-- ================= MOBILE SLIDER SCRIPT ================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const slider = document.querySelector(".subject-grid");
+  const cards = document.querySelectorAll(".subject-card");
+  const dots = document.querySelectorAll(".dot");
+
+  let autoMoved = false;
+
+
+  /* Update active dot based on current visible card */
+
+  function updateDots(){
+
+    if(window.innerWidth > 700) return;
+
+    const scrollLeft = slider.scrollLeft;
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 14;
+
+    let index = Math.round(
+      scrollLeft / (cardWidth + gap)
+    );
+
+    index = Math.max(
+      0,
+      Math.min(index, dots.length - 1)
+    );
+
+
+    dots.forEach(function(dot){
+
+      dot.classList.remove("active");
+
+    });
+
+
+    if(dots[index]){
+
+      dots[index].classList.add("active");
+
+    }
+
+  }
+
+
+  slider.addEventListener("scroll", function(){
+
+    window.requestAnimationFrame(updateDots);
+
+  });
+
+
+  /* Auto slide ONCE from Mathematics to Science */
+
+  if(window.innerWidth <= 700){
+
+    setTimeout(function(){
+
+      if(autoMoved) return;
+
+      const cardWidth = cards[0].offsetWidth;
+      const gap = 14;
+
+      slider.scrollTo({
+
+        left:cardWidth + gap,
+
+        behavior:"smooth"
+
+      });
+
+
+      autoMoved = true;
+
+    }, 1800);
+
+  }
+
+
+  /* Dot click navigation */
+
+  dots.forEach(function(dot, index){
+
+    dot.addEventListener("click", function(){
+
+      const cardWidth = cards[0].offsetWidth;
+      const gap = 14;
+
+      slider.scrollTo({
+
+        left:index * (cardWidth + gap),
+
+        behavior:"smooth"
+
+      });
+
+    });
+
+  });
+
+});
+
+</script>
 
 </body>
 </html>
