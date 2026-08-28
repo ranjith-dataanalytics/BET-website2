@@ -3,106 +3,590 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Class 10 Tests | BET Maths Masterclass</title>
+<title>Class 10 Tests | BET MasterClass</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+:root{
+  --dark:#1d1c19;
+  --dark-2:#292824;
+  --dark-3:#37342d;
+  --gold:#c99b43;
+  --gold-dark:#a87925;
+  --cream:#f2ede4;
+  --offwhite:#faf7f1;
+  --text:#292722;
+  --muted:#6e685e;
+  --border:#d7cdbc;
+  --soft:#ebe2d4;
+  --shadow:0 14px 38px rgba(45,39,30,.14);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:#080d12;color:#f5f5f5}
-header{min-height:90px;display:flex;align-items:center;justify-content:space-between;padding:14px 5%;border-bottom:1px solid #27313a;background:#080d12;position:sticky;top:0;z-index:10}
-.logo{display:flex;align-items:center;gap:13px;text-decoration:none}
-.logo-icon{font-size:32px}
-.logo-text h1{color:#f7bd43;font-size:27px;letter-spacing:2px}
-.logo-text p{font-size:12px;font-weight:bold;color:#ddd;margin-top:2px}
-nav a{color:#ddd;text-decoration:none;margin:0 15px;font-weight:bold}
-nav a:hover{color:#f7bd43}
-.page{max-width:1400px;margin:auto;padding:48px 5% 70px}
-.back{display:inline-block;color:#f7bd43;text-decoration:none;margin-bottom:32px;font-weight:bold}
-.top{text-align:center;margin-bottom:45px}
-.top span{color:#f7bd43;font-weight:bold;letter-spacing:2px}
-.top h1{font-size:42px;margin:15px 0}
-.top p{color:#bbb;font-size:18px}
-.subject-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px}
-.subject-card{background:#151d23;border:1px solid #2d3b46;border-radius:15px;padding:32px;text-align:center;transition:.25s}
-.subject-card:hover{transform:translateY(-4px);border-color:#d99c28}
-.subject-icon{font-size:45px;margin-bottom:13px}
-.subject-card h2{font-size:25px;color:#f7bd43;margin-bottom:22px}
-.test-btn{display:block;width:100%;padding:15px;margin:12px 0;background:linear-gradient(90deg,#d99c28,#ffd466);color:#111;text-decoration:none;border-radius:8px;font-weight:bold}
-.more-btn{display:block;width:100%;padding:14px;margin-top:18px;border:1px solid #d99c28;color:#f7bd43;text-decoration:none;border-radius:8px;font-weight:bold}
-.more-btn:hover{background:#d99c28;color:#111}
-footer{text-align:center;padding:24px;border-top:1px solid #27313a;color:#89939d;font-size:14px}
-@media(max-width:700px){header{flex-direction:column;gap:13px}nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}nav a{margin:0 7px;font-size:14px}.page{padding:30px 18px 50px}.top h1{font-size:31px}.subject-grid{grid-template-columns:1fr}}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:0 5%;
+  background:var(--dark);
+  border-bottom:1px solid #3d3a34;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  flex-shrink:0;
+}
+.logo-icon{
+  width:48px;height:48px;
+  display:grid;place-items:center;
+  background:var(--gold);
+  border-radius:14px;
+  font-size:25px;
+}
+.logo-text h1{color:#f5efe5;font-size:27px;line-height:1.05}
+.logo-text p{
+  color:var(--gold);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1.2px;
+  margin-top:3px;
+}
+nav{display:flex;gap:28px}
+nav a{
+  color:#e7e0d4;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:700;
+  padding:29px 0 25px;
+  border-bottom:3px solid transparent;
+}
+nav a:hover,nav a.active{
+  color:var(--gold);
+  border-bottom-color:var(--gold);
+}
+
+/* PAGE */
+.page{max-width:1300px;margin:auto;padding:48px 5% 60px}
+.back{
+  display:inline-block;
+  margin-bottom:30px;
+  color:var(--gold);
+  text-decoration:none;
+  font-weight:700;
+}
+.top{text-align:center;margin-bottom:38px}
+.top span{
+  color:var(--gold);
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:1.5px;
+}
+.top h1{font-size:42px;margin:12px 0;color:var(--dark)}
+.top p{font-size:18px;color:var(--muted)}
+
+/* SUBJECT GRID */
+.subject-grid{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:20px;
+  max-width:1200px;
+  margin:auto;
+}
+.subject-card{
+  grid-column:span 2;
+  background:var(--offwhite);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:26px 22px 22px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.subject-card:nth-child(4){grid-column:2 / span 2}
+.subject-card:nth-child(5){grid-column:4 / span 2}
+.subject-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--gold);
+  box-shadow:0 18px 40px rgba(45,39,30,.18);
+}
+.subject-icon{
+  width:64px;height:64px;
+  margin:0 auto 13px;
+  display:grid;place-items:center;
+  background:var(--soft);
+  border-radius:18px;
+  font-size:30px;
+}
+.subject-card h2{
+  font-size:21px;
+  color:var(--dark);
+  margin-bottom:18px;
+}
+.test-btn,.more-btn{
+  display:block;
+  width:100%;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:700;
+  border-radius:10px;
+  transition:.25s;
+}
+.test-btn{
+  padding:13px;
+  margin:10px 0;
+  background:var(--gold);
+  color:var(--offwhite);
+}
+.test-btn:hover{background:var(--gold-dark)}
+.more-btn{
+  padding:12px;
+  margin-top:15px;
+  background:#f5efe6;
+  color:var(--gold-dark);
+  border:1px solid var(--gold);
+}
+.more-btn:hover{background:var(--gold);color:var(--offwhite)}
+.slider-dots{display:none}
+.note{
+  max-width:700px;
+  margin:32px auto 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* CONTACT */
+.contact-section{
+  padding:70px 5% 50px;
+  background:linear-gradient(180deg,#e9dfd0 0%,#ddd0bf 100%);
+}
+.contact-heading{text-align:center;margin-bottom:34px}
+.contact-heading h2{font-size:34px;color:var(--dark);margin-bottom:12px}
+.contact-heading p{
+  max-width:720px;
+  margin:auto;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.65;
+}
+.contact-buttons{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  max-width:900px;
+  margin:0 auto 50px;
+}
+.contact-btn{
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px;
+  background:var(--offwhite);
+  border:1px solid var(--border);
+  border-radius:12px;
+  color:var(--text);
+  text-decoration:none;
+  font-weight:700;
+}
+.contact-btn:hover{border-color:var(--gold);color:var(--gold-dark)}
+.benefits{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  max-width:1100px;
+  margin:0 auto 42px;
+}
+.benefit{display:flex;align-items:center;gap:12px}
+.benefit-icon{
+  width:42px;height:42px;min-width:42px;
+  display:grid;place-items:center;
+  border:1px solid #cbbca7;
+  background:var(--offwhite);
+  border-radius:50%;
+  color:var(--gold-dark);
+}
+.benefit h3{font-size:15px;color:var(--dark);margin-bottom:3px}
+.benefit p{font-size:13px;color:var(--muted)}
+.question-box{
+  max-width:950px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:24px 26px;
+  background:var(--offwhite);
+  border:1px solid #cbbca7;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+.question-text h3{font-size:18px;color:var(--dark);margin-bottom:6px}
+.question-text p{color:var(--muted)}
+.question-btn{
+  padding:14px 22px;
+  background:var(--gold);
+  color:var(--offwhite);
+  text-decoration:none;
+  font-weight:700;
+  border-radius:10px;
+  white-space:nowrap;
+}
+.question-btn:hover{background:var(--gold-dark)}
+footer{
+  text-align:center;
+  padding:24px;
+  background:var(--dark);
+  color:#d8d0c3;
+  font-size:14px;
+}
+
+/* TABLET */
+@media(max-width:1000px) and (min-width:701px){
+  .subject-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    max-width:850px;
+  }
+  .subject-card,
+  .subject-card:nth-child(4),
+  .subject-card:nth-child(5){
+    grid-column:auto;
+  }
+  .subject-card:nth-child(5){
+    grid-column:1 / -1;
+    width:calc(50% - 10px);
+    justify-self:center;
+  }
+  .benefits{grid-template-columns:repeat(2,1fr)}
+}
+
+/* MOBILE */
+@media(max-width:700px){
+  header{
+    min-height:auto;
+    flex-direction:column;
+    gap:10px;
+    padding:12px 16px;
+  }
+  .logo-icon{width:42px;height:42px;font-size:22px;border-radius:12px}
+  .logo-text h1{font-size:23px}
+  .logo-text p{font-size:9px}
+  nav{
+    width:100%;
+    overflow-x:auto;
+    gap:20px;
+    padding-top:2px;
+    justify-content:flex-start;
+    scrollbar-width:none;
+  }
+  nav::-webkit-scrollbar{display:none}
+  nav a{
+    flex:0 0 auto;
+    font-size:13px;
+    padding:9px 0;
+  }
+
+  .page{padding:30px 0 45px}
+  .back{margin-left:18px;margin-bottom:24px;font-size:14px}
+  .top{margin:0 18px 28px}
+  .top h1{font-size:31px;line-height:1.2}
+  .top p{font-size:16px}
+
+  .subject-grid{
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:5px 11% 14px;
+    width:100%;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    scrollbar-width:none;
+  }
+  .subject-grid::-webkit-scrollbar{display:none}
+  .subject-card,
+  .subject-card:nth-child(4),
+  .subject-card:nth-child(5){
+    flex:0 0 78%;
+    width:78%;
+    min-width:78%;
+    max-width:78%;
+    padding:26px 20px 22px;
+    grid-column:auto;
+    scroll-snap-align:center;
+  }
+  .subject-card:hover{transform:none}
+  .slider-dots{
+    display:flex;
+    justify-content:center;
+    gap:7px;
+    margin-top:3px;
+  }
+  .dot{
+    width:7px;height:7px;
+    border-radius:50%;
+    background:#b7aa97;
+    border:0;
+    padding:0;
+    cursor:pointer;
+  }
+  .dot.active{
+    width:20px;
+    border-radius:10px;
+    background:var(--gold);
+  }
+  .note{margin:26px 18px 0;font-size:13px}
+
+  .contact-section{padding:52px 18px 38px}
+  .contact-heading h2{font-size:28px;line-height:1.25}
+  .contact-heading p{font-size:16px}
+  .contact-buttons{grid-template-columns:1fr;margin-bottom:40px}
+  .benefits{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+  .benefit{
+    padding:12px 8px;
+    flex-direction:column;
+    text-align:center;
+    border:1px solid rgba(168,121,37,.25);
+    border-radius:12px;
+    background:rgba(255,255,255,.18);
+  }
+  .benefit-icon{width:38px;height:38px;min-width:38px}
+  .benefit h3{font-size:12px}
+  .benefit p{display:none}
+  .question-box{
+    flex-direction:column;
+    text-align:center;
+    padding:22px 18px;
+  }
+  .question-btn{width:100%;text-align:center}
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<a href="index.html" class="logo">
-<div class="logo-icon">🎓</div>
-<div class="logo-text"><h1>BET</h1><p>MATHS MASTERCLASS</p></div>
-</a>
-<nav>
-<a href="index.html">Home</a>
-<a href="index.html#classes">Classes</a>
-<a href="#tests">Tests</a>
-<a href="#">About Us</a>
-<a href="#">Contact Us</a>
-</nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">🎓</div>
+    <div class="logo-text">
+      <h1>BET</h1>
+      <p>MASTERCLASS</p>
+    </div>
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#classes">Classes</a>
+    <a href="#tests" class="active">Tests</a>
+    <a href="index.html#about">About Us</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
 </header>
 
 <main class="page">
-<a href="index.html#classes" class="back">← BACK TO CLASSES</a>
-<div class="top">
-<span>━━━━ CLASS 10 ━━━━</span>
-<h1>Class 10 Practice Tests</h1>
-<p>Choose your subject and start practicing</p>
-</div>
-<section class="subject-grid" id="tests">
+  <a href="index.html#classes" class="back">← BACK TO CLASSES</a>
 
-        <div class="subject-card">
-            <div class="subject-icon">➗</div>
-            <h2>MATHEMATICS</h2>
-            <!-- Replace # with your actual Google Form links -->
-            <a href="#" class="test-btn">FREE TEST - 1</a>
-            <a href="#" class="test-btn">FREE TEST - 2</a>
-            <a href="#" class="more-btn">MORE TESTS →</a>
-        </div>
+  <div class="top">
+    <span>━━━ CLASS 10 ━━━</span>
+    <h1>Class 10 Practice Tests</h1>
+    <p>Choose your subject and start practicing</p>
+  </div>
 
-        <div class="subject-card">
-            <div class="subject-icon">🔬</div>
-            <h2>SCIENCE</h2>
-            <!-- Replace # with your actual Google Form links -->
-            <a href="#" class="test-btn">FREE TEST - 1</a>
-            <a href="#" class="test-btn">FREE TEST - 2</a>
-            <a href="#" class="more-btn">MORE TESTS →</a>
-        </div>
+  <section class="subject-grid" id="tests">
 
-        <div class="subject-card">
-            <div class="subject-icon">🌍</div>
-            <h2>SOCIAL SCIENCE</h2>
-            <!-- Replace # with your actual Google Form links -->
-            <a href="#" class="test-btn">FREE TEST - 1</a>
-            <a href="#" class="test-btn">FREE TEST - 2</a>
-            <a href="#" class="more-btn">MORE TESTS →</a>
-        </div>
+    <div class="subject-card">
+      <div class="subject-icon">➗</div>
+      <h2>MATHEMATICS</h2>
+      <a href="#" class="test-btn">FREE TEST - 1</a>
+      <a href="#" class="test-btn">FREE TEST - 2</a>
+      <a href="#" class="more-btn">MORE TESTS →</a>
+    </div>
 
-        <div class="subject-card">
-            <div class="subject-icon">தமிழ்</div>
-            <h2>TAMIL</h2>
-            <!-- Replace # with your actual Google Form links -->
-            <a href="#" class="test-btn">FREE TEST - 1</a>
-            <a href="#" class="test-btn">FREE TEST - 2</a>
-            <a href="#" class="more-btn">MORE TESTS →</a>
-        </div>
+    <div class="subject-card">
+      <div class="subject-icon">🔬</div>
+      <h2>SCIENCE</h2>
+      <a href="#" class="test-btn">FREE TEST - 1</a>
+      <a href="#" class="test-btn">FREE TEST - 2</a>
+      <a href="#" class="more-btn">MORE TESTS →</a>
+    </div>
 
-        <div class="subject-card">
-            <div class="subject-icon">🔤</div>
-            <h2>ENGLISH</h2>
-            <!-- Replace # with your actual Google Form links -->
-            <a href="#" class="test-btn">FREE TEST - 1</a>
-            <a href="#" class="test-btn">FREE TEST - 2</a>
-            <a href="#" class="more-btn">MORE TESTS →</a>
-        </div>
-</section>
+    <div class="subject-card">
+      <div class="subject-icon">🌍</div>
+      <h2>SOCIAL SCIENCE</h2>
+      <a href="#" class="test-btn">FREE TEST - 1</a>
+      <a href="#" class="test-btn">FREE TEST - 2</a>
+      <a href="#" class="more-btn">MORE TESTS →</a>
+    </div>
+
+    <div class="subject-card">
+      <div class="subject-icon">தமிழ்</div>
+      <h2>TAMIL</h2>
+      <a href="#" class="test-btn">FREE TEST - 1</a>
+      <a href="#" class="test-btn">FREE TEST - 2</a>
+      <a href="#" class="more-btn">MORE TESTS →</a>
+    </div>
+
+    <div class="subject-card">
+      <div class="subject-icon">🔤</div>
+      <h2>ENGLISH</h2>
+      <a href="#" class="test-btn">FREE TEST - 1</a>
+      <a href="#" class="test-btn">FREE TEST - 2</a>
+      <a href="#" class="more-btn">MORE TESTS →</a>
+    </div>
+
+  </section>
+
+  <div class="slider-dots" aria-label="Subject navigation">
+    <button class="dot active" aria-label="Mathematics"></button>
+    <button class="dot" aria-label="Science"></button>
+    <button class="dot" aria-label="Social Science"></button>
+    <button class="dot" aria-label="Tamil"></button>
+    <button class="dot" aria-label="English"></button>
+  </div>
+
+  <p class="note">
+    The first two tests are free. Replace each <strong>#</strong> link with the corresponding test link.
+  </p>
 </main>
-<footer>© BET Maths Masterclass</footer>
+
+<section class="contact-section" id="contact">
+  <div class="contact-heading">
+    <h2>Ready to Start Your Learning Journey?</h2>
+    <p>Practice chapter-wise tests, improve your skills, track your progress and move forward with BET MasterClass.</p>
+  </div>
+
+  <div class="contact-buttons">
+    <a href="mailto:YOUR_EMAIL@gmail.com" class="contact-btn">✉️ Email Us</a>
+    <a href="https://wa.me/YOUR_NUMBER" class="contact-btn">💬 WhatsApp</a>
+    <a href="#tests" class="contact-btn">🚀 Start Practicing</a>
+  </div>
+
+  <div class="benefits">
+    <div class="benefit">
+      <div class="benefit-icon">⏱</div>
+      <div><h3>Practice Anytime</h3><p>Learn at your own pace</p></div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">✓</div>
+      <div><h3>Improve Accuracy</h3><p>Practice and reduce mistakes</p></div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">📊</div>
+      <div><h3>Track Progress</h3><p>Understand your performance</p></div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">🎯</div>
+      <div><h3>Achieve Your Goals</h3><p>Build confidence and succeed</p></div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="question-text">
+      <h3>Have a question about BET MasterClass?</h3>
+      <p>Contact us and we will help you get started.</p>
+    </div>
+    <a href="https://wa.me/YOUR_NUMBER" class="question-btn">Ask Us on WhatsApp →</a>
+  </div>
+</section>
+
+<footer>© 2026 BET MasterClass | From Basics To Mastery</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const slider = document.querySelector(".subject-grid");
+  const cards = Array.from(document.querySelectorAll(".subject-card"));
+  const dots = Array.from(document.querySelectorAll(".dot"));
+  let autoSlideDone = false;
+
+  function isMobile(){
+    return window.matchMedia("(max-width: 700px)").matches;
+  }
+
+  function cardCenter(index){
+    const card = cards[index];
+    return card.offsetLeft - (slider.clientWidth - card.clientWidth) / 2;
+  }
+
+  function updateDots(){
+    if(!isMobile()) return;
+    const center = slider.scrollLeft + slider.clientWidth / 2;
+    let nearest = 0;
+    let smallest = Infinity;
+
+    cards.forEach(function(card,index){
+      const cardMid = card.offsetLeft + card.clientWidth / 2;
+      const distance = Math.abs(center - cardMid);
+      if(distance < smallest){
+        smallest = distance;
+        nearest = index;
+      }
+    });
+
+    dots.forEach(function(dot,index){
+      dot.classList.toggle("active", index === nearest);
+    });
+  }
+
+  let ticking = false;
+  slider.addEventListener("scroll", function(){
+    if(!ticking){
+      window.requestAnimationFrame(function(){
+        updateDots();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  dots.forEach(function(dot,index){
+    dot.addEventListener("click", function(){
+      if(isMobile()){
+        slider.scrollTo({
+          left:cardCenter(index),
+          behavior:"smooth"
+        });
+      }
+    });
+  });
+
+  function autoSlideOnce(){
+    if(isMobile() && !autoSlideDone){
+      setTimeout(function(){
+        if(!autoSlideDone && isMobile()){
+          slider.scrollTo({
+            left:cardCenter(1),
+            behavior:"smooth"
+          });
+          autoSlideDone = true;
+        }
+      },1800);
+    }
+  }
+
+  window.addEventListener("resize", updateDots);
+  updateDots();
+  autoSlideOnce();
+});
+</script>
+
 </body>
 </html>
