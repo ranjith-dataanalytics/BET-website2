@@ -67,23 +67,43 @@ nav{
 .logo{
   display:flex;
   align-items:center;
+  gap:10px;
   flex-shrink:0;
   text-decoration:none;
-  line-height:0;
 }
 
-.brand-logo{
-  display:block;
-  width:150px;
-  max-height:66px;
-  height:auto;
+.logo-icon{
+  width:62px;
+  height:62px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#d6b36b,#8fa8bd);
+  box-shadow:0 4px 14px rgba(0,0,0,.20);
+}
+
+.logo-icon img{
+  width:100%;
+  height:100%;
   object-fit:contain;
-  filter:drop-shadow(0 4px 10px rgba(0,0,0,.22));
-  transition:transform .25s ease;
+  display:block;
 }
 
-.logo:hover .brand-logo{
-  transform:scale(1.025);
+.logo-text h1{
+  color:#f5efe5;
+  font-size:31px;
+  line-height:1;
+  letter-spacing:.5px;
+}
+
+.logo-text p{
+  color:#d3a84f;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  margin-top:5px;
 }
 
 .menu{
@@ -529,13 +549,7 @@ footer span{
     gap:10px;
     position:relative;
   }
-
-  .brand-logo{
-    width:118px;
-    max-height:54px;
-  }
-
-  .login-btn{
+.login-btn{
     padding:10px 12px;
     font-size:12px;
   }
@@ -733,14 +747,7 @@ footer span{
 
 /* ================= MOBILE-ONLY REFINEMENTS ================= */
 @media(max-width:700px){
-
-  /* Keep the full BET MasterClass logo clear on the dark mobile header */
-  nav .brand-logo{
-    width:118px;
-    max-height:54px;
-  }
-
-  /* Compact hero heading: less oversized and cleaner on a phone */
+/* Compact hero heading: less oversized and cleaner on a phone */
   .hero-left h2{
     font-size:34px;
     line-height:1.14;
@@ -1201,6 +1208,61 @@ footer span{
   }
 }
 
+
+/* ================= FINAL MOBILE HEADER ================= */
+@media(max-width:700px){
+  nav{
+    min-height:auto !important;
+    display:flex !important;
+    flex-wrap:wrap !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:0 !important;
+    padding:0 16px 14px !important;
+  }
+
+  /* Hide the large header logo on phones */
+  nav .logo{
+    display:none !important;
+  }
+
+  .menu{
+    order:1 !important;
+    width:100% !important;
+    display:flex !important;
+    justify-content:flex-start !important;
+    overflow-x:auto !important;
+    gap:20px !important;
+    padding:0 !important;
+    margin:0 !important;
+    scrollbar-width:none;
+  }
+
+  .menu::-webkit-scrollbar{
+    display:none;
+  }
+
+  .menu li{
+    flex:0 0 auto;
+  }
+
+  .menu a{
+    display:block;
+    font-size:13px !important;
+    padding:17px 0 13px !important;
+    white-space:nowrap;
+  }
+
+  .login-btn{
+    order:2 !important;
+    width:100% !important;
+    margin-top:12px !important;
+    padding:16px !important;
+    text-align:center !important;
+    font-size:16px !important;
+  }
+}
+
 </style>
 </head>
 
@@ -1209,12 +1271,18 @@ footer span{
 <!-- NAVIGATION -->
 <nav>
   <a href="#" class="logo" aria-label="BET MasterClass Home">
-    <img src="bet-masterclass-logo.png" alt="BET MasterClass Logo" class="brand-logo">
+    <div class="logo-icon">
+      <img src="favicon.png" alt="BET MasterClass logo">
+    </div>
+    <div class="logo-text">
+      <h1>BET</h1>
+      <p>MASTERCLASS</p>
+    </div>
   </a>
 
   <ul class="menu">
     <li><a class="active" href="#">Home</a></li>
-    <li><a href="#classes">Classes⌄</a></li>
+    <li><a href="#classes">Classes</a></li>
     <li><a href="#classes">Tests</a></li>
     <li><a href="#about">About Us</a></li>
     <li><a href="#contact">Contact Us</a></li>
