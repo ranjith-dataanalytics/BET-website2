@@ -25,137 +25,444 @@
   --red-bg:#f7e5e2;
   --shadow:0 10px 28px rgba(45,39,30,.10);
 }
-*{box-sizing:border-box}
+
+*{
+  box-sizing:border-box;
+}
+
 body{
-  margin:0;font-family:Arial,sans-serif;
-  background:var(--cream);color:var(--text);
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--cream);
+  color:var(--text);
 }
+
 header{
-  min-height:70px;display:flex;align-items:center;justify-content:space-between;
-  padding:0 5%;border-bottom:1px solid #3d3a34;background:var(--dark);
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5%;
+  border-bottom:1px solid #3d3a34;
+  background:var(--dark);
 }
-.logo{font-size:22px;font-weight:bold;color:#f5efe5}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+  color:#f5efe5;
+}
+
 .back-btn{
-  color:var(--gold);text-decoration:none;border:1px solid var(--gold);
-  padding:9px 16px;border-radius:9px;font-weight:bold;
+  color:var(--gold);
+  text-decoration:none;
+  border:1px solid var(--gold);
+  padding:9px 16px;
+  border-radius:9px;
+  font-weight:bold;
 }
-.back-btn:hover{background:var(--gold);color:var(--dark)}
+
+.back-btn:hover{
+  background:var(--gold);
+  color:var(--dark);
+}
 
 .test-header{
-  text-align:center;padding:34px 15px;background:var(--hero);
+  text-align:center;
+  padding:34px 15px;
+  background:var(--hero);
   border-bottom:1px solid var(--hero-border);
 }
-.test-header h1{margin:0;color:var(--dark);font-size:28px}
-.test-header p{color:#5f6b73;margin:8px 0 0}
 
-.container{max-width:900px;margin:auto;padding:22px 20px}
+.test-header h1{
+  margin:0;
+  color:var(--dark);
+  font-size:28px;
+}
+
+.test-header p{
+  color:#5f6b73;
+  margin:8px 0 0;
+}
+
+/* WIDER DESKTOP LAYOUT */
+
+.container{
+  max-width:1150px;
+  margin:auto;
+  padding:22px 20px;
+}
 
 .card{
-  background:var(--offwhite);border:1px solid var(--border);
-  border-radius:18px;padding:22px;margin-bottom:20px;box-shadow:var(--shadow);
+  background:var(--offwhite);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:20px;
+  box-shadow:var(--shadow);
 }
-.card h2{margin-top:0;color:var(--dark)}
 
-.student-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.input-group{display:flex;flex-direction:column;gap:8px}
-.input-group label{color:var(--text);font-size:15px;font-weight:700}
-input[type="text"],input[type="tel"]{
-  width:100%;padding:14px;background:#fffdf9;border:1px solid var(--border);
-  border-radius:10px;color:var(--text);font-size:15px;outline:none;
+.card h2{
+  margin-top:0;
+  color:var(--dark);
 }
-input[type="text"]:focus,input[type="tel"]:focus{
-  border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,155,67,.14);
+
+/* STUDENT DETAILS */
+
+.student-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
 }
+
+.input-group{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.input-group label{
+  color:var(--text);
+  font-size:15px;
+  font-weight:700;
+}
+
+input[type="text"],
+input[type="tel"]{
+  width:100%;
+  padding:14px;
+  background:#fffdf9;
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--text);
+  font-size:15px;
+  outline:none;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(201,155,67,.14);
+}
+
+/* MOBILE STICKY PROGRESS */
+
+.mobile-progress{
+  display:none;
+}
+
+/* QUESTIONS */
 
 .question-number{
-  color:var(--gold-dark);font-weight:bold;margin-bottom:12px;
-  font-size:13px;letter-spacing:.4px;
+  color:var(--gold-dark);
+  font-weight:bold;
+  margin-bottom:12px;
+  font-size:13px;
+  letter-spacing:.4px;
 }
-.question-text{
-  white-space:pre-line;line-height:1.65;font-size:17px;font-weight:600;
-  color:var(--text);margin-bottom:18px;
-}
-.option{
-  display:flex;align-items:flex-start;gap:10px;background:#fffdf9;
-  border:1px solid var(--border);padding:14px;border-radius:10px;
-  margin-bottom:10px;cursor:pointer;color:var(--text);line-height:1.5;
-}
-.option:hover{border-color:var(--gold);background:#fffaf0}
-.option input{margin-top:3px;accent-color:var(--gold-dark);flex-shrink:0}
 
-.submit-area{text-align:center;padding:20px}
-.submit-btn{
-  border:none;background:var(--gold);color:#fffdf9;font-size:16px;
-  font-weight:bold;padding:15px 38px;border-radius:10px;cursor:pointer;
+.question-text{
+  white-space:pre-line;
+  line-height:1.65;
+  font-size:17px;
+  font-weight:600;
+  color:var(--text);
+  margin-bottom:18px;
 }
-.submit-btn:hover{background:var(--gold-dark)}
+
+.option{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  background:#fffdf9;
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:10px;
+  margin-bottom:10px;
+  cursor:pointer;
+  color:var(--text);
+  line-height:1.5;
+}
+
+.option:hover{
+  border-color:var(--gold);
+  background:#fffaf0;
+}
+
+.option input{
+  margin-top:3px;
+  accent-color:var(--gold-dark);
+  flex-shrink:0;
+}
+
+/* SUBMIT BUTTON */
+
+.submit-area{
+  text-align:center;
+  padding:20px;
+}
+
+.submit-btn{
+  border:none;
+  background:var(--gold);
+  color:#fffdf9;
+  font-size:16px;
+  font-weight:bold;
+  padding:15px 38px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.submit-btn:hover{
+  background:var(--gold-dark);
+}
+
+/* RESULTS */
 
 .result-summary{
-  text-align:center;background:var(--offwhite);border:1px solid var(--border);
-  border-radius:18px;padding:25px;margin-bottom:25px;box-shadow:var(--shadow);
-}
-.result-summary h2{color:var(--dark)}
-.score{color:var(--gold-dark);font-size:32px;font-weight:bold;margin:12px 0}
-.correct{border-left:5px solid var(--green)}
-.wrong{border-left:5px solid var(--red)}
-
-.answer-box{padding:12px;margin-top:10px;border-radius:9px;background:#fffdf9}
-.correct-answer{color:var(--green)}
-.wrong-answer{color:var(--red)}
-.explanation{
-  margin-top:15px;padding:15px;background:var(--soft);border-radius:10px;
-  line-height:1.6;color:var(--text);
+  text-align:center;
+  background:var(--offwhite);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:25px;
+  margin-bottom:25px;
+  box-shadow:var(--shadow);
 }
 
-.test-layout{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:20px;align-items:start}
-.question-sidebar{
-  position:sticky;top:15px;background:var(--offwhite);border:1px solid var(--border);
-  border-radius:18px;padding:16px;box-shadow:var(--shadow);
+.result-summary h2{
+  color:var(--dark);
 }
-.question-sidebar h3{margin:0 0 12px;color:var(--dark);font-size:16px}
-.question-legend{font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:12px}
-.legend-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
-.legend-answered{background:var(--green)}
-.legend-unanswered{background:#b7aa97}
-.question-nav-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.question-nav-btn{
-  width:100%;aspect-ratio:1;border:1px solid var(--border);border-radius:8px;
-  background:#fffdf9;color:var(--text);font-weight:bold;cursor:pointer;
+
+.score{
+  color:var(--gold-dark);
+  font-size:32px;
+  font-weight:bold;
+  margin:12px 0;
 }
-.question-nav-btn:hover{border-color:var(--gold);background:#fff8e9}
-.question-nav-btn.answered{background:var(--green);border-color:var(--green);color:white}
-.question-nav-btn.unanswered{background:#fffdf9}
+
+.correct{
+  border-left:5px solid var(--green);
+}
+
+.wrong{
+  border-left:5px solid var(--red);
+}
 
 .result-option{
-  display:flex;justify-content:space-between;align-items:center;gap:15px;
-  background:#fffdf9;border:1px solid var(--border);padding:14px;border-radius:10px;
-  margin-bottom:10px;font-size:16px;color:var(--text);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  background:#fffdf9;
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:10px;
+  margin-bottom:10px;
+  font-size:16px;
+  color:var(--text);
 }
-.result-option-text{flex:1}
-.result-option.selected-correct,.result-option.actual-correct{
-  border-color:var(--green);background:var(--green-bg);
+
+.result-option-text{
+  flex:1;
 }
-.result-option.selected-wrong{border-color:var(--red);background:var(--red-bg)}
-.answer-status{font-size:20px;font-weight:bold;min-width:25px;text-align:right}
-.tick{color:var(--green)}.cross{color:var(--red)}
+
+.result-option.selected-correct,
+.result-option.actual-correct{
+  border-color:var(--green);
+  background:var(--green-bg);
+}
+
+.result-option.selected-wrong{
+  border-color:var(--red);
+  background:var(--red-bg);
+}
+
+.answer-status{
+  font-size:20px;
+  font-weight:bold;
+  min-width:25px;
+  text-align:right;
+}
+
+.tick{
+  color:var(--green);
+}
+
+.cross{
+  color:var(--red);
+}
+
 .result-explanation{
-  margin-top:18px;padding:16px;background:var(--soft);border:1px solid var(--border);
-  border-radius:10px;line-height:1.6;color:var(--text);
+  margin-top:18px;
+  padding:16px;
+  background:var(--soft);
+  border:1px solid var(--border);
+  border-radius:10px;
+  line-height:1.6;
+  color:var(--text);
 }
-.result-explanation strong{color:var(--gold-dark)}
+
+.result-explanation strong{
+  color:var(--gold-dark);
+}
+
+/* DESKTOP QUESTION STATUS */
+
+.test-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 210px;
+  gap:20px;
+  align-items:start;
+}
+
+.question-sidebar{
+  position:sticky;
+  top:15px;
+  background:var(--offwhite);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:var(--shadow);
+}
+
+.question-sidebar h3{
+  margin:0 0 12px;
+  color:var(--dark);
+  font-size:16px;
+}
+
+.question-legend{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:12px;
+}
+
+.legend-dot{
+  display:inline-block;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  margin-right:5px;
+}
+
+.legend-answered{
+  background:var(--green);
+}
+
+.legend-unanswered{
+  background:#b7aa97;
+}
+
+.question-nav-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+}
+
+.question-nav-btn{
+  width:100%;
+  aspect-ratio:1;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#fffdf9;
+  color:var(--text);
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.question-nav-btn:hover{
+  border-color:var(--gold);
+  background:#fff8e9;
+}
+
+.question-nav-btn.answered{
+  background:var(--green);
+  border-color:var(--green);
+  color:white;
+}
+
+.question-nav-btn.unanswered{
+  background:#fffdf9;
+}
+
+/* MOBILE */
 
 @media(max-width:600px){
-  header{padding:0 16px;min-height:64px}
-  .logo{font-size:16px}
-  .back-btn{padding:8px 10px;font-size:13px}
-  .student-grid{grid-template-columns:1fr}
-  .test-header h1{font-size:22px}
-  .test-layout{grid-template-columns:1fr}
-  .question-sidebar{position:static;order:-1}
-  .container{padding:18px 14px}
-  .card{padding:18px;border-radius:14px}
-  .question-text{font-size:16px}
+
+  header{
+    padding:0 16px;
+    min-height:64px;
+  }
+
+  .logo{
+    font-size:16px;
+  }
+
+  .back-btn{
+    padding:8px 10px;
+    font-size:13px;
+  }
+
+  .test-header h1{
+    font-size:22px;
+  }
+
+  .container{
+    padding:18px 14px;
+  }
+
+  .student-grid{
+    grid-template-columns:1fr;
+  }
+
+  .test-layout{
+    grid-template-columns:1fr;
+  }
+
+  /* HIDE DESKTOP QUESTION STATUS ON MOBILE */
+
+  .question-sidebar{
+    display:none;
+  }
+
+  /* SHOW STICKY MOBILE PROGRESS */
+
+  .mobile-progress{
+    display:block;
+    position:sticky;
+    top:8px;
+    z-index:100;
+    background:var(--dark);
+    color:#f5efe5;
+    border:1px solid var(--gold);
+    border-radius:10px;
+    padding:12px 15px;
+    margin-bottom:15px;
+    text-align:center;
+    font-weight:bold;
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
+  }
+
+  .mobile-progress span{
+    color:var(--gold);
+  }
+
+  .card{
+    padding:18px;
+    border-radius:14px;
+  }
+
+  .question-text{
+    font-size:16px;
+  }
+
+  .submit-btn{
+    width:100%;
+  }
+
 }
+
 </style>
 </head>
 
@@ -163,357 +470,1019 @@ input[type="text"]:focus,input[type="tel"]:focus{
 
 <header>
 
-    <div class="logo">🎓 BET MASTERCLASS</div>
+  <div class="logo">
+    🎓 BET MASTERCLASS
+  </div>
 
-    <a href="class9.html" class="back-btn">
-        ← Back to Class 9
-    </a>
+  <a href="class9.html" class="back-btn">
+    ← Back to Class 9
+  </a>
 
 </header>
 
 
 <div class="test-header">
 
-    <h1>CLASS 9 MATHS – FREE TEST 1</h1>
+  <h1>CLASS 9 MATHS – FREE TEST 1</h1>
 
-    <p>Answer all questions and submit your test.</p>
+  <p>
+    Answer all questions and submit your test.
+  </p>
 
 </div>
 
 
 <div class="container" id="testContainer">
 
-    <!-- STUDENT DETAILS -->
+  <!-- STUDENT DETAILS -->
 
-    <div class="card student-card">
+  <div class="card student-card">
 
     <h2>Student Details</h2>
 
     <div class="student-grid">
 
-        <div class="input-group">
-            <label for="studentName">Student Name</label>
+      <div class="input-group">
 
-            <input
-                type="text"
-                id="studentName"
-                placeholder="Enter your name"
-                required
-            >
-        </div>
+        <label for="studentName">
+          Student Name
+        </label>
 
-        <div class="input-group">
-            <label for="studentPhone">Phone Number</label>
+        <input
+          type="text"
+          id="studentName"
+          placeholder="Enter your name"
+          required
+        >
 
-            <input
-                type="tel"
-                id="studentPhone"
-                placeholder="Enter your phone number"
-                required
-            >
-        </div>
+      </div>
+
+
+      <div class="input-group">
+
+        <label for="studentPhone">
+          Phone Number
+        </label>
+
+        <input
+          type="tel"
+          id="studentPhone"
+          placeholder="Enter your phone number"
+          required
+        >
+
+      </div>
 
     </div>
+
+  </div>
+
+
+  <!-- MOBILE PROGRESS -->
+
+  <div class="mobile-progress">
+
+    Answered:
+    <span id="mobileAnsweredCount">0</span>
+    /
+    <span id="mobileTotalCount">0</span>
+
+  </div>
+
+
+  <!-- QUESTIONS + DESKTOP QUESTION STATUS -->
+
+  <div class="test-layout">
+
+    <div id="questionsContainer"></div>
+
+
+    <aside class="question-sidebar">
+
+      <h3>Question Status</h3>
+
+      <div class="question-legend">
+
+        <span class="legend-dot legend-answered"></span>
+        Answered
+
+        <br>
+
+        <span class="legend-dot legend-unanswered"></span>
+        Not Answered
+
+      </div>
+
+      <div
+        id="questionNav"
+        class="question-nav-grid">
+      </div>
+
+    </aside>
+
+  </div>
+
+
+  <div class="submit-area">
+
+    <button
+      class="submit-btn"
+      id="submitButton"
+      onclick="submitTest()">
+
+      SUBMIT TEST
+
+    </button>
+
+  </div>
 
 </div>
 
 
-    <!-- QUESTIONS + QUESTION STATUS -->
-
-    <div class="test-layout">
-
-        <div id="questionsContainer"></div>
-
-        <aside class="question-sidebar">
-
-            <h3>Question Status</h3>
-
-            <div class="question-legend">
-                <span class="legend-dot legend-answered"></span> Answered<br>
-                <span class="legend-dot legend-unanswered"></span> Not Answered
-            </div>
-
-            <div id="questionNav" class="question-nav-grid"></div>
-
-        </aside>
-
-    </div>
-
-
-    <div class="submit-area">
-
-        <button class="submit-btn" onclick="submitTest()">
-            SUBMIT TEST
-        </button>
-
-    </div>
-
+<div
+  class="container"
+  id="resultContainer"
+  style="display:none;">
 </div>
-
-
-<div class="container" id="resultContainer" style="display:none;"></div>
 
 
 <script>
 
-/* FIX VERSION: correctAnswers + feedback schema */
+/* =========================================================
+   GOOGLE APPS SCRIPT WEB APP URL
+
+   AFTER DEPLOYING THE APPS SCRIPT,
+   PASTE YOUR WEB APP URL BELOW.
+   ========================================================= */
+
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbyHGyRFo8DMY_GiOJum_3zr1AuBfq2EgseDCx56gcIlU1UFfUF9JmTjQnt4V21hB0EG/exec";
+
 
 /* =========================================================
-   MATHS TEST 1 DATA
-   =========================================================
+   TEST INFORMATION
+   ========================================================= */
 
-   REPLACE THIS SAMPLE DATA WITH YOUR EXTRACTED MATHS TEST 1
-   QUESTIONS.
+const TEST_NAME = "Class 9 Maths – Free Test 1";
 
-   The system automatically displays ALL questions in this array.
-*/
 
+/* =========================================================
+   QUESTIONS
+   ========================================================= */
 
 const questions = [
-    
-    {
-      "itemNumber": 1,
-      "title": "1. Assertion: Transport is necessary for economic development.\nReason: Goods do not move on their own.",
-      "helpText": "",
-      "type": "MULTIPLE_CHOICE",
-      "required": true,
-      "options": [
-        "Both A and R are true and R explains A",
-        "Both A and R are true but R does not explain A",
-        "A is true but R is false",
-        "Both A and R are false"
-      ],
-      "correctAnswers": [
-        "Both A and R are true and R explains A"
-      ],
-      "points": 1,
-      "correctFeedback": "✔ Correct\nConcept: Transport connects producers and consumers.",
-      "incorrectFeedback": "❌ Review Concept\nExplanation: Transport connects producers and consumers."
-    },
-    {
-      "itemNumber": 2,
-      "title": "2. Assertion: India has one of the largest road networks in the world.\nReason: Roads connect even remote villages.",
-      "helpText": "",
-      "type": "MULTIPLE_CHOICE",
-      "required": true,
-      "options": [
-        "Both A and R are true and R explains A",
-        "Both A and R are true but R does not explain A",
-        "A is true but R is false",
-        "Both A and R are false"
-      ],
-      "correctAnswers": [
-        "Both A and R are true and R explains A"
-      ],
-      "points": 1,
-      "correctFeedback": "✔ Correct\nConcept: Extensive connectivity increases road length.",
-      "incorrectFeedback": "❌ Review Concept\nExplanation: Extensive connectivity increases road length."
-    },
-    {
-      "itemNumber": 5,
-      "title": "3. Assertion: Golden Quadrilateral connects major metros.\nReason: It improves industrial and trade connectivity.",
-      "helpText": "",
-      "type": "MULTIPLE_CHOICE",
-      "required": true,
-      "options": [
-        "Both A and R are true and R explains A",
-        "Both A and R are true but R does not explain A",
-        "A is true but R is false",
-        "Both A and R are false"
-      ],
-      "correctAnswers": [
-        "Both A and R are true and R explains A"
-      ],
-      "points": 1,
-      "correctFeedback": "✔ Correct\nConcept: It boosts economic integration.",
-      "incorrectFeedback": "❌ Review Concept\nExplanation: It boosts economic integration."
-    },
-    
-  ];
+
+  {
+    "itemNumber": 1,
+    "title":
+    "1. Assertion: Transport is necessary for economic development.\nReason: Goods do not move on their own.",
+
+    "helpText": "",
+    "type": "MULTIPLE_CHOICE",
+    "required": true,
+
+    "options": [
+      "Both A and R are true and R explains A",
+      "Both A and R are true but R does not explain A",
+      "A is true but R is false",
+      "Both A and R are false"
+    ],
+
+    "correctAnswers": [
+      "Both A and R are true and R explains A"
+    ],
+
+    "points": 1,
+
+    "correctFeedback":
+    "✔ Correct\nConcept: Transport connects producers and consumers.",
+
+    "incorrectFeedback":
+    "❌ Review Concept\nExplanation: Transport connects producers and consumers."
+  },
+
+
+  {
+    "itemNumber": 2,
+    "title":
+    "2. Assertion: India has one of the largest road networks in the world.\nReason: Roads connect even remote villages.",
+
+    "helpText": "",
+    "type": "MULTIPLE_CHOICE",
+    "required": true,
+
+    "options": [
+      "Both A and R are true and R explains A",
+      "Both A and R are true but R does not explain A",
+      "A is true but R is false",
+      "Both A and R are false"
+    ],
+
+    "correctAnswers": [
+      "Both A and R are true and R explains A"
+    ],
+
+    "points": 1,
+
+    "correctFeedback":
+    "✔ Correct\nConcept: Extensive connectivity increases road length.",
+
+    "incorrectFeedback":
+    "❌ Review Concept\nExplanation: Extensive connectivity increases road length."
+  },
+
+
+  {
+    "itemNumber": 3,
+    "title":
+    "3. Assertion: Golden Quadrilateral connects major metros.\nReason: It improves industrial and trade connectivity.",
+
+    "helpText": "",
+    "type": "MULTIPLE_CHOICE",
+    "required": true,
+
+    "options": [
+      "Both A and R are true and R explains A",
+      "Both A and R are true but R does not explain A",
+      "A is true but R is false",
+      "Both A and R are false"
+    ],
+
+    "correctAnswers": [
+      "Both A and R are true and R explains A"
+    ],
+
+    "points": 1,
+
+    "correctFeedback":
+    "✔ Correct\nConcept: It boosts economic integration.",
+
+    "incorrectFeedback":
+    "❌ Review Concept\nExplanation: It boosts economic integration."
+  }
+
+];
 
 
 /* =========================================================
    DISPLAY QUESTIONS
    ========================================================= */
 
-
 function renderQuestions(){
 
-    const container = document.getElementById("questionsContainer");
-    const questionNav = document.getElementById("questionNav");
+  const container =
+    document.getElementById("questionsContainer");
 
-    container.innerHTML = "";
-    questionNav.innerHTML = "";
+  const questionNav =
+    document.getElementById("questionNav");
 
-    questions.forEach((question,index)=>{
+  const totalCount =
+    document.getElementById("mobileTotalCount");
 
-        let optionsHTML = "";
 
-        question.options.forEach((option)=>{
+  container.innerHTML = "";
+  questionNav.innerHTML = "";
 
-            optionsHTML += `
-                <label class="option">
-                    <input type="radio" name="question_${index}" value="${escapeHTML(option)}" onchange="updateQuestionStatus(${index})">
-                    ${escapeHTML(option)}
-                </label>
-            `;
-        });
+  totalCount.textContent =
+    questions.length;
 
-        container.innerHTML += `
-            <div class="card" id="questionCard_${index}">
-                <div class="question-number">QUESTION ${index + 1}</div>
-                <div class="question-text">${escapeHTML(question.title)}</div>
-                ${optionsHTML}
-            </div>
-        `;
 
-        questionNav.innerHTML += `
-            <button type="button" class="question-nav-btn unanswered" id="navQuestion_${index}" onclick="goToQuestion(${index})" title="Question ${index + 1}">${index + 1}</button>
-        `;
+  questions.forEach((question,index)=>{
+
+    let optionsHTML = "";
+
+
+    question.options.forEach((option)=>{
+
+      optionsHTML += `
+
+        <label class="option">
+
+          <input
+            type="radio"
+            name="question_${index}"
+            value="${escapeHTML(option)}"
+            onchange="updateQuestionStatus(${index})"
+          >
+
+          ${escapeHTML(option)}
+
+        </label>
+
+      `;
+
     });
+
+
+    container.innerHTML += `
+
+      <div
+        class="card"
+        id="questionCard_${index}">
+
+        <div class="question-number">
+
+          QUESTION ${index + 1}
+
+        </div>
+
+
+        <div class="question-text">
+
+          ${escapeHTML(question.title)}
+
+        </div>
+
+
+        ${optionsHTML}
+
+      </div>
+
+    `;
+
+
+    questionNav.innerHTML += `
+
+      <button
+        type="button"
+        class="question-nav-btn unanswered"
+        id="navQuestion_${index}"
+        onclick="goToQuestion(${index})"
+        title="Question ${index + 1}">
+
+        ${index + 1}
+
+      </button>
+
+    `;
+
+  });
+
+
+  updateMobileProgress();
+
 }
+
+
+/* =========================================================
+   UPDATE QUESTION STATUS
+   ========================================================= */
 
 function updateQuestionStatus(index){
-    const selected = document.querySelector(`input[name="question_${index}"]:checked`);
-    const navButton = document.getElementById(`navQuestion_${index}`);
-    if(!navButton) return;
+
+  const selected =
+    document.querySelector(
+      `input[name="question_${index}"]:checked`
+    );
+
+
+  const navButton =
+    document.getElementById(
+      `navQuestion_${index}`
+    );
+
+
+  if(navButton){
+
     if(selected){
-        navButton.classList.remove("unanswered");
-        navButton.classList.add("answered");
+
+      navButton.classList.remove("unanswered");
+      navButton.classList.add("answered");
+
     }else{
-        navButton.classList.remove("answered");
-        navButton.classList.add("unanswered");
+
+      navButton.classList.remove("answered");
+      navButton.classList.add("unanswered");
+
     }
+
+  }
+
+
+  updateMobileProgress();
+
 }
+
+
+/* =========================================================
+   UPDATE MOBILE PROGRESS
+   ========================================================= */
+
+function updateMobileProgress(){
+
+  let answeredCount = 0;
+
+
+  questions.forEach((question,index)=>{
+
+    const selected =
+      document.querySelector(
+        `input[name="question_${index}"]:checked`
+      );
+
+
+    if(selected){
+
+      answeredCount++;
+
+    }
+
+  });
+
+
+  document
+    .getElementById("mobileAnsweredCount")
+    .textContent = answeredCount;
+
+}
+
+
+/* =========================================================
+   GO TO QUESTION
+   ========================================================= */
 
 function goToQuestion(index){
-    const card = document.getElementById(`questionCard_${index}`);
-    if(card){ card.scrollIntoView({behavior:"smooth",block:"center"}); }
+
+  const card =
+    document.getElementById(
+      `questionCard_${index}`
+    );
+
+
+  if(card){
+
+    card.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+  }
+
 }
 
+
+/* =========================================================
+   SAVE TEST RESPONSE TO GOOGLE SHEETS
+   ========================================================= */
+
+function saveResponseToGoogleSheet(data){
+
+  if(
+    !GOOGLE_SCRIPT_URL ||
+    GOOGLE_SCRIPT_URL.includes(
+      "PASTE_YOUR_GOOGLE"
+    )
+  ){
+
+    console.warn(
+      "Google Apps Script URL has not been added."
+    );
+
+    return;
+
+  }
+
+
+  const formData =
+    new URLSearchParams();
+
+
+  formData.append(
+    "data",
+    JSON.stringify(data)
+  );
+
+
+  /*
+    no-cors allows the website to send
+    the submission to the Apps Script
+    Web App from another domain.
+  */
+
+  fetch(
+    GOOGLE_SCRIPT_URL,
+    {
+      method:"POST",
+      mode:"no-cors",
+      body:formData
+    }
+  )
+
+  .catch(error=>{
+
+    console.error(
+      "Google Sheet save error:",
+      error
+    );
+
+  });
+
+}
 
 
 /* =========================================================
    SUBMIT TEST
    ========================================================= */
 
-
 function submitTest(){
 
-    const studentName = document.getElementById("studentName").value.trim();
-    const studentPhone = document.getElementById("studentPhone").value.trim();
+  const studentName =
+    document
+      .getElementById("studentName")
+      .value
+      .trim();
 
-    if(!studentName){ alert("Please enter Student Name."); document.getElementById("studentName").focus(); return; }
-    if(!studentPhone){ alert("Please enter Phone Number."); document.getElementById("studentPhone").focus(); return; }
 
-    let unanswered = [];
-    questions.forEach((question,index)=>{
-        const selected = document.querySelector(`input[name="question_${index}"]:checked`);
-        if(!selected) unanswered.push(index + 1);
-    });
+  const studentPhone =
+    document
+      .getElementById("studentPhone")
+      .value
+      .trim();
 
-    if(unanswered.length > 0){
-        alert("Please answer all questions.\n\nUnanswered questions: " + unanswered.join(", "));
-        goToQuestion(unanswered[0] - 1);
-        return;
+
+  /* VALIDATE STUDENT NAME */
+
+  if(!studentName){
+
+    alert(
+      "Please enter Student Name."
+    );
+
+    document
+      .getElementById("studentName")
+      .focus();
+
+    return;
+
+  }
+
+
+  /* VALIDATE PHONE NUMBER */
+
+  if(!studentPhone){
+
+    alert(
+      "Please enter Phone Number."
+    );
+
+    document
+      .getElementById("studentPhone")
+      .focus();
+
+    return;
+
+  }
+
+
+  /* CHECK UNANSWERED QUESTIONS */
+
+  let unanswered = [];
+
+
+  questions.forEach((question,index)=>{
+
+    const selected =
+      document.querySelector(
+        `input[name="question_${index}"]:checked`
+      );
+
+
+    if(!selected){
+
+      unanswered.push(index + 1);
+
     }
 
-    let score = 0;
-    let reviewHTML = "";
+  });
 
-    questions.forEach((question,index)=>{
-        const selected = document.querySelector(`input[name="question_${index}"]:checked`);
-        const studentAnswer = selected.value;
-        const correctAnswers = Array.isArray(question.correctAnswers) ? question.correctAnswers : [];
-        const isCorrect = correctAnswers.includes(studentAnswer);
-        if(isCorrect) score++;
 
-        let resultOptionsHTML = "";
-        question.options.forEach((option)=>{
-            const isSelected = option === studentAnswer;
-            const isActualCorrect = correctAnswers.includes(option);
-            let optionClass = "";
-            let statusMark = "";
+  if(unanswered.length > 0){
 
-            if(isSelected && isActualCorrect){
-                optionClass = "selected-correct";
-                statusMark = `<span class="answer-status tick">✓</span>`;
-            }else if(isSelected && !isActualCorrect){
-                optionClass = "selected-wrong";
-                statusMark = `<span class="answer-status cross">✗</span>`;
-            }else if(!isSelected && isActualCorrect){
-                optionClass = "actual-correct";
-                statusMark = `<span class="answer-status tick">✓</span>`;
-            }
+    alert(
+      "Please answer all questions.\n\nUnanswered questions: "
+      +
+      unanswered.join(", ")
+    );
 
-            resultOptionsHTML += `
-                <div class="result-option ${optionClass}">
-                    <span class="result-option-text">${escapeHTML(option)}</span>
-                    ${statusMark}
-                </div>
-            `;
-        });
 
-        const explanationText = isCorrect ? (question.correctFeedback || "") : (question.incorrectFeedback || "");
+    goToQuestion(
+      unanswered[0] - 1
+    );
 
-        reviewHTML += `
-            <div class="card ${isCorrect ? "correct" : "wrong"}">
-                <div class="question-number">QUESTION ${index + 1} ${isCorrect ? "✓ CORRECT" : "✗ WRONG"}</div>
-                <div class="question-text">${escapeHTML(question.title)}</div>
-                <div class="result-options">${resultOptionsHTML}</div>
-                <div class="result-explanation">
-                    <strong>Explanation:</strong><br><br>
-                    ${escapeHTML(explanationText)}
-                </div>
-            </div>
-        `;
+
+    return;
+
+  }
+
+
+  /* PREVENT DOUBLE CLICK */
+
+  const submitButton =
+    document.getElementById(
+      "submitButton"
+    );
+
+
+  submitButton.disabled = true;
+
+  submitButton.textContent =
+    "SUBMITTING...";
+
+
+  /* CALCULATE SCORE */
+
+  let score = 0;
+
+  let reviewHTML = [];
+
+  let studentAnswers = [];
+
+
+  questions.forEach((question,index)=>{
+
+    const selected =
+      document.querySelector(
+        `input[name="question_${index}"]:checked`
+      );
+
+
+    const studentAnswer =
+      selected.value;
+
+
+    const correctAnswers =
+      Array.isArray(
+        question.correctAnswers
+      )
+      ?
+      question.correctAnswers
+      :
+      [];
+
+
+    const isCorrect =
+      correctAnswers.includes(
+        studentAnswer
+      );
+
+
+    if(isCorrect){
+
+      score++;
+
+    }
+
+
+    /* SAVE ANSWER DATA */
+
+    studentAnswers.push({
+
+      questionNumber:index + 1,
+
+      question:question.title,
+
+      selectedAnswer:studentAnswer,
+
+      correctAnswer:
+        correctAnswers.join(" | "),
+
+      isCorrect:isCorrect
+
     });
 
-    document.getElementById("testContainer").style.display = "none";
-    const resultContainer = document.getElementById("resultContainer");
-    resultContainer.style.display = "block";
-    resultContainer.innerHTML = `
-        <div class="result-summary">
-            <h2>TEST RESULT</h2>
-            <p><strong>Student:</strong> ${escapeHTML(studentName)}</p>
-            <p><strong>Phone:</strong> ${escapeHTML(studentPhone)}</p>
-            <div class="score">${score} / ${questions.length}</div>
-            <p>Review each question below. Your selected answer is marked, and the correct answer is shown with a tick where needed.</p>
-        </div>
-        ${reviewHTML}
-    `;
-    window.scrollTo({top:0,behavior:"smooth"});
-}
 
+    /* RESULT OPTIONS */
+
+    let resultOptionsHTML = "";
+
+
+    question.options.forEach((option)=>{
+
+      const isSelected =
+        option === studentAnswer;
+
+
+      const isActualCorrect =
+        correctAnswers.includes(option);
+
+
+      let optionClass = "";
+
+      let statusMark = "";
+
+
+      if(
+        isSelected &&
+        isActualCorrect
+      ){
+
+        optionClass =
+          "selected-correct";
+
+
+        statusMark =
+          `<span class="answer-status tick">✓</span>`;
+
+      }
+
+
+      else if(
+        isSelected &&
+        !isActualCorrect
+      ){
+
+        optionClass =
+          "selected-wrong";
+
+
+        statusMark =
+          `<span class="answer-status cross">✗</span>`;
+
+      }
+
+
+      else if(
+        !isSelected &&
+        isActualCorrect
+      ){
+
+        optionClass =
+          "actual-correct";
+
+
+        statusMark =
+          `<span class="answer-status tick">✓</span>`;
+
+      }
+
+
+      resultOptionsHTML += `
+
+        <div
+          class="result-option ${optionClass}">
+
+          <span
+            class="result-option-text">
+
+            ${escapeHTML(option)}
+
+          </span>
+
+          ${statusMark}
+
+        </div>
+
+      `;
+
+    });
+
+
+    const explanationText =
+      isCorrect
+      ?
+      (
+        question.correctFeedback
+        ||
+        ""
+      )
+      :
+      (
+        question.incorrectFeedback
+        ||
+        ""
+      );
+
+
+    reviewHTML.push(`
+
+      <div
+        class="card
+        ${isCorrect ? "correct" : "wrong"}">
+
+        <div class="question-number">
+
+          QUESTION ${index + 1}
+
+          ${
+
+            isCorrect
+
+            ?
+
+            "✓ CORRECT"
+
+            :
+
+            "✗ WRONG"
+
+          }
+
+        </div>
+
+
+        <div class="question-text">
+
+          ${escapeHTML(question.title)}
+
+        </div>
+
+
+        <div class="result-options">
+
+          ${resultOptionsHTML}
+
+        </div>
+
+
+        <div class="result-explanation">
+
+          <strong>
+            Explanation:
+          </strong>
+
+          <br><br>
+
+          ${escapeHTML(explanationText)}
+
+        </div>
+
+      </div>
+
+    `);
+
+  });
+
+
+  /* CALCULATE PERCENTAGE */
+
+  const percentage =
+    (
+      score /
+      questions.length *
+      100
+    )
+    .toFixed(2);
+
+
+  /* CREATE DATA FOR GOOGLE SHEETS */
+
+  const submissionData = {
+
+    testName:TEST_NAME,
+
+    studentName:studentName,
+
+    studentPhone:studentPhone,
+
+    score:score,
+
+    totalQuestions:
+      questions.length,
+
+    percentage:percentage,
+
+    answers:studentAnswers
+
+  };
+
+
+  /* SEND DATA TO GOOGLE SHEETS */
+
+  saveResponseToGoogleSheet(
+    submissionData
+  );
+
+
+  /* SHOW RESULT */
+
+  document
+    .getElementById("testContainer")
+    .style.display = "none";
+
+
+  const resultContainer =
+    document.getElementById(
+      "resultContainer"
+    );
+
+
+  resultContainer.style.display =
+    "block";
+
+
+  resultContainer.innerHTML = `
+
+    <div class="result-summary">
+
+      <h2>
+        TEST RESULT
+      </h2>
+
+
+      <p>
+
+        <strong>Student:</strong>
+
+        ${escapeHTML(studentName)}
+
+      </p>
+
+
+      <p>
+
+        <strong>Phone:</strong>
+
+        ${escapeHTML(studentPhone)}
+
+      </p>
+
+
+      <div class="score">
+
+        ${score}
+        /
+        ${questions.length}
+
+      </div>
+
+
+      <p>
+
+        Percentage:
+        <strong>
+          ${percentage}%
+        </strong>
+
+      </p>
+
+
+      <p>
+
+        Review each question below.
+        Your selected answer is marked,
+        and the correct answer is shown
+        with a tick where needed.
+
+      </p>
+
+    </div>
+
+
+    ${reviewHTML.join("")}
+
+  `;
+
+
+  window.scrollTo({
+
+    top:0,
+
+    behavior:"smooth"
+
+  });
+
+}
 
 
 /* =========================================================
    SECURITY / HTML ESCAPE
    ========================================================= */
 
-
 function escapeHTML(text){
 
-    return String(text)
+  return String(text)
 
-        .replace(/&/g,"&amp;")
+    .replace(
+      /&/g,
+      "&amp;"
+    )
 
-        .replace(/</g,"&lt;")
+    .replace(
+      /</g,
+      "&lt;"
+    )
 
-        .replace(/>/g,"&gt;")
+    .replace(
+      />/g,
+      "&gt;"
+    )
 
-        .replace(/"/g,"&quot;")
+    .replace(
+      /"/g,
+      "&quot;"
+    )
 
-        .replace(/'/g,"&#039;");
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
 
 /* START TEST */
 
-
 renderQuestions();
-
 
 </script>
 
