@@ -52,9 +52,46 @@ header{
 }
 
 .logo{
-  font-size:22px;
-  font-weight:bold;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  flex-shrink:0;
+}
+
+.logo-icon{
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px;
+  background:linear-gradient(135deg,#d6b36b,#8fa8bd);
+  border-radius:16px;
+  box-shadow:0 4px 14px rgba(0,0,0,.20);
+}
+
+.logo-icon img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+.logo-text h1{
+  margin:0;
   color:#f5efe5;
+  font-size:29px;
+  line-height:1;
+  letter-spacing:.5px;
+}
+
+.logo-text p{
+  margin:5px 0 0;
+  color:#d3a84f;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
 }
 
 .back-btn{
@@ -399,9 +436,6 @@ input[type="tel"]:focus{
     min-height:64px;
   }
 
-  .logo{
-    font-size:16px;
-  }
 
   .back-btn{
     padding:8px 10px;
@@ -467,6 +501,27 @@ input[type="tel"]:focus{
 
 }
 
+
+/* ================= FINAL MOBILE HEADER ================= */
+@media(max-width:600px){
+  /* Hide logo on mobile to save vertical space */
+  header .logo{
+    display:none !important;
+  }
+
+  header{
+    min-height:58px !important;
+    justify-content:flex-end !important;
+    padding:0 16px !important;
+  }
+
+  .back-btn{
+    margin-left:auto;
+    padding:8px 12px !important;
+    font-size:13px !important;
+  }
+}
+
 </style>
 </head>
 
@@ -474,9 +529,15 @@ input[type="tel"]:focus{
 
 <header>
 
-  <div class="logo">
-    🎓 BET MASTERCLASS
-  </div>
+  <a href="index.html" class="logo" aria-label="BET MasterClass Home">
+    <div class="logo-icon">
+      <img src="favicon.png" alt="BET MasterClass Logo">
+    </div>
+    <div class="logo-text">
+      <h1>BET</h1>
+      <p>MASTERCLASS</p>
+    </div>
+  </a>
 
   <a href="class9.html" class="back-btn">
     ← Back to Class 9
