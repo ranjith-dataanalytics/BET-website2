@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 10 | BET MasterClass</title>
+
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<style>
+
+:root{
+  --navy:#1d1c19;
+  --navy-2:#292824;
+  --navy-3:#37342d;
+  --gold:#c99b43;
+  --gold-dark:#a87925;
+  --cream:#f2ede4;
+  --white:#faf7f1;
+  --text:#292722;
+  --muted:#6e685e;
+  --border:#d7cdbc;
+  --soft:#ebe2d4;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  min-height:100vh;
+}
+
+/* HEADER */
+
+header{
+  min-height:82px;
+  padding:0 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  background:var(--navy);
+  border-bottom:1px solid #3d3a34;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+}
+
+.brand-logo{
+  width:150px;
+  max-height:66px;
+  object-fit:contain;
+}
+
+.logout-btn{
+  padding:11px 18px;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:10px;
+  background:transparent;
+  color:#e7e0d4;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.logout-btn:hover{
+  background:var(--gold);
+  border-color:var(--gold);
+  color:white;
+}
+
+/* HERO */
+
+.dashboard-hero{
+  padding:55px 5%;
+  text-align:center;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(201,155,67,.16),
+      transparent 35%
+    ),
+    linear-gradient(180deg,#f9f5ed 0%,#f2ede4 100%);
+}
+
+.welcome{
+  color:var(--gold);
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  margin-bottom:12px;
+}
+
+.dashboard-hero h1{
+  color:var(--navy);
+  font-size:46px;
+  margin-bottom:12px;
+}
+
+.dashboard-hero h1 span{
+  color:var(--gold);
+}
+
+.dashboard-hero p{
+  max-width:650px;
+  margin:auto;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.6;
+}
+
+/* MAIN */
+
+.dashboard{
+  max-width:1200px;
+  margin:auto;
+  padding:55px 5% 70px;
+}
+
+.section-title{
+  text-align:center;
+  color:var(--navy);
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.section-description{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:32px;
+}
+
+/* SUBJECTS */
+
+.subject-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.subject-card{
+  min-height:245px;
+  padding:28px 20px 22px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:var(--white);
+  box-shadow:0 10px 28px rgba(0,0,0,.10);
+  transition:.25s;
+}
+
+.subject-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--gold);
+  box-shadow:0 16px 32px rgba(0,0,0,.13);
+}
+
+.subject-icon{
+  width:72px;
+  height:72px;
+  margin-bottom:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:20px;
+  background:var(--soft);
+  font-size:34px;
+}
+
+.subject-card h3{
+  color:var(--navy);
+  font-size:23px;
+  margin-bottom:8px;
+}
+
+.subject-card p{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.subject-btn{
+  width:100%;
+  margin-top:auto;
+  padding:12px;
+  border-radius:10px;
+  background:#f5efe6;
+  border:1px solid #d8c7aa;
+  color:var(--gold-dark);
+  text-decoration:none;
+  font-weight:700;
+  transition:.25s;
+}
+
+.subject-btn:hover{
+  background:var(--gold);
+  border-color:var(--gold);
+  color:white;
+}
+
+/* RESULTS */
+
+.results-card{
+  margin-top:35px;
+  padding:28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  background:var(--navy);
+  border-radius:18px;
+  color:white;
+}
+
+.results-card h2{
+  font-size:23px;
+  margin-bottom:6px;
+}
+
+.results-card p{
+  color:#d8d0c3;
+}
+
+.results-btn{
+  padding:14px 22px;
+  border-radius:10px;
+  background:var(--gold);
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+/* FOOTER */
+
+footer{
+  padding:22px;
+  text-align:center;
+  background:#211f1b;
+  color:#d8d0c3;
+  font-size:14px;
+}
+
+footer span{
+  color:white;
+  font-weight:700;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .subject-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:700px){
+
+  header{
+    min-height:70px;
+    padding:10px 16px;
+  }
+
+  .brand-logo{
+    width:120px;
+    max-height:52px;
+  }
+
+  .logout-btn{
+    padding:9px 12px;
+    font-size:12px;
+  }
+
+  .dashboard-hero{
+    padding:40px 18px;
+  }
+
+  .dashboard-hero h1{
+    font-size:34px;
+  }
+
+  .dashboard-hero p{
+    font-size:15px;
+  }
+
+  .dashboard{
+    padding:40px 18px 50px;
+  }
+
+  .section-title{
+    font-size:26px;
+  }
+
+  .subject-grid{
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+
+  .subject-card{
+    min-height:210px;
+    padding:20px 12px 16px;
+  }
+
+  .subject-icon{
+    width:58px;
+    height:58px;
+    font-size:28px;
+    border-radius:16px;
+  }
+
+  .subject-card h3{
+    font-size:18px;
+  }
+
+  .subject-card p{
+    font-size:12px;
+  }
+
+  .subject-btn{
+    font-size:13px;
+    padding:10px 6px;
+  }
+
+  .results-card{
+    flex-direction:column;
+    text-align:center;
+    padding:25px 18px;
+  }
+
+  .results-btn{
+    width:100%;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <a href="index.html" class="logo">
+    <img
+      src="bet-masterclass-logo.png"
+      alt="BET MasterClass Logo"
+      class="brand-logo"
+    >
+  </a>
+
+  <button class="logout-btn" id="logoutButton">
+    Logout
+  </button>
+
+</header>
+
+
+<section class="dashboard-hero">
+
+  <p class="welcome">
+    WELCOME TO YOUR PREMIUM LEARNING AREA
+  </p>
+
+  <h1>
+    <span>CLASS 10</span> MASTERCLASS
+  </h1>
+
+  <p>
+    Choose your subject, practice your tests and continue
+    building your confidence with BET MasterClass.
+  </p>
+
+</section>
+
+
+<main class="dashboard">
+
+  <h2 class="section-title">
+    Choose Your Subject
+  </h2>
+
+  <p class="section-description">
+    Select a subject to view your available Class 10 tests.
+  </p>
+
+
+  <div class="subject-grid">
+
+    <div class="subject-card">
+
+      <div class="subject-icon">➗</div>
+
+      <h3>Mathematics</h3>
+
+      <p>
+        Practice chapter-wise mathematics tests.
+      </p>
+
+      <a href="#" class="subject-btn">
+        Open Tests →
+      </a>
+
+    </div>
+
+
+    <div class="subject-card">
+
+      <div class="subject-icon">🔬</div>
+
+      <h3>Science</h3>
+
+      <p>
+        Practice physics, chemistry and biology tests.
+      </p>
+
+      <a href="#" class="subject-btn">
+        Open Tests →
+      </a>
+
+    </div>
+
+
+    <div class="subject-card">
+
+      <div class="subject-icon">🌍</div>
+
+      <h3>Social Science</h3>
+
+      <p>
+        Practice history, geography and civics tests.
+      </p>
+
+      <a href="#" class="subject-btn">
+        Open Tests →
+      </a>
+
+    </div>
+
+
+    <div class="subject-card">
+
+      <div class="subject-icon">📘</div>
+
+      <h3>English</h3>
+
+      <p>
+        Improve your skills with practice tests.
+      </p>
+
+      <a href="#" class="subject-btn">
+        Open Tests →
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="results-card">
+
+    <div>
+
+      <h2>My Test Results</h2>
+
+      <p>
+        Review your completed tests and track your performance.
+      </p>
+
+    </div>
+
+    <a href="#" class="results-btn">
+      View Results →
+    </a>
+
+  </div>
+
+</main>
+
+
+<footer>
+  © 2026 <span>BET MasterClass</span> | From Basics To Mastery
+</footer>
+
+
+<script>
+
+/* DEMO LOGIN CHECK */
+
+const isLoggedIn =
+  sessionStorage.getItem("betLoggedIn");
+
+const studentClass =
+  sessionStorage.getItem("betClass");
+
+
+if(isLoggedIn !== "true" || studentClass !== "10"){
+
+  window.location.href = "index.html";
+
+}
+
+
+/* LOGOUT */
+
+document
+  .getElementById("logoutButton")
+  .addEventListener("click", function(){
+
+    sessionStorage.removeItem("betLoggedIn");
+    sessionStorage.removeItem("betClass");
+
+    window.location.href = "index.html";
+
+  });
+
+</script>
+
+</body>
+</html>
