@@ -1261,6 +1261,7 @@ footer span{
     text-align:center !important;
     font-size:16px !important;
   }
+}
 /* ================= STUDENT LOGIN POPUP ================= */
 
 .login-modal{
@@ -1271,7 +1272,7 @@ footer span{
   justify-content:center;
   padding:20px;
   background:rgba(20,19,17,.72);
-  z-index:1000;
+  z-index:9999;
 }
 
 .login-modal.show{
@@ -1348,11 +1349,10 @@ footer span{
   border:none;
   border-radius:10px;
   background:var(--blue);
-  color:var(--white);
+  color:white;
   font-size:15px;
   font-weight:700;
   cursor:pointer;
-  transition:.25s;
 }
 
 .login-submit:hover{
@@ -1369,14 +1369,14 @@ footer span{
 }
 
 @media(max-width:700px){
+
   .login-box{
+    width:100%;
     padding:30px 22px 25px;
     border-radius:18px;
   }
+
 }
-
-  
-
 </style>
 </head>
 
