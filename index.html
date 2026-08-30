@@ -1261,7 +1261,121 @@ footer span{
     text-align:center !important;
     font-size:16px !important;
   }
+/* ================= STUDENT LOGIN POPUP ================= */
+
+.login-modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(20,19,17,.72);
+  z-index:1000;
 }
+
+.login-modal.show{
+  display:flex;
+}
+
+.login-box{
+  position:relative;
+  width:min(100%,420px);
+  padding:36px;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:0 24px 60px rgba(0,0,0,.28);
+}
+
+.login-close{
+  position:absolute;
+  top:12px;
+  right:14px;
+  border:none;
+  background:transparent;
+  color:var(--muted);
+  font-size:28px;
+  cursor:pointer;
+  line-height:1;
+}
+
+.login-box h2{
+  color:var(--navy);
+  text-align:center;
+  margin-bottom:8px;
+  font-size:28px;
+}
+
+.login-box > p{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:25px;
+}
+
+.login-field{
+  margin-bottom:18px;
+}
+
+.login-field label{
+  display:block;
+  margin-bottom:7px;
+  color:var(--text);
+  font-size:14px;
+  font-weight:700;
+}
+
+.login-field input{
+  width:100%;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#fffdf9;
+  color:var(--text);
+  font-size:15px;
+  outline:none;
+}
+
+.login-field input:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(201,155,67,.14);
+}
+
+.login-submit{
+  width:100%;
+  margin-top:5px;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:var(--blue);
+  color:var(--white);
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.login-submit:hover{
+  background:var(--blue-dark);
+}
+
+.login-message{
+  min-height:20px;
+  margin-top:12px;
+  text-align:center;
+  color:#b42318;
+  font-size:13px;
+  font-weight:600;
+}
+
+@media(max-width:700px){
+  .login-box{
+    padding:30px 22px 25px;
+    border-radius:18px;
+  }
+}
+
+  
 
 </style>
 </head>
@@ -1288,7 +1402,7 @@ footer span{
     <li><a href="#contact">Contact Us</a></li>
   </ul>
 
-  <a href="#" class="login-btn">👤 Login / Register</a>
+  <a href="#" class="login-btn" id="loginButton">👤 Student Login</a>
 </nav>
 
 <!-- HERO SECTION -->
@@ -1440,6 +1554,108 @@ footer span{
 <footer>
   © 2026 <span>BET MasterClass</span> | From Basics To Mastery
 </footer>
+<!-- STUDENT LOGIN POPUP -->
+<div class="login-modal" id="loginModal">
+  <div class="login-box">
 
+    <button class="login-close" id="loginClose" aria-label="Close">
+      ×
+    </button>
+
+    <h2>Student Login</h2>
+
+    <p>
+      Enter the login details provided by BET MasterClass.
+    </p>
+
+    <form id="loginForm">
+
+      <div class="login-field">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="Enter your username"
+          required
+        >
+      </div>
+
+      <div class="login-field">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          required
+        >
+      </div>
+
+      <button type="submit" class="login-submit">
+        Login
+      </button>
+
+      <div class="login-message" id="loginMessage"></div>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+const loginButton = document.getElementById("loginButton");
+const loginModal = document.getElementById("loginModal");
+const loginClose = document.getElementById("loginClose");
+const loginForm = document.getElementById("loginForm");
+const loginMessage = document.getElementById("loginMessage");
+
+loginButton.addEventListener("click", function(event){
+  event.preventDefault();
+  loginModal.classList.add("show");
+  loginMessage.textContent = "";
+});
+
+loginClose.addEventListener("click", function(){
+  loginModal.classList.remove("show");
+  loginForm.reset();
+  loginMessage.textContent = "";
+});
+
+loginModal.addEventListener("click", function(event){
+  if(event.target === loginModal){
+    loginModal.classList.remove("show");
+    loginForm.reset();
+    loginMessage.textContent = "";
+  }
+});
+
+loginForm.addEventListener("submit", function(event){
+  event.preventDefault();
+
+  const username = document
+    .getElementById("username")
+    .value
+    .trim();
+
+  const password = document
+    .getElementById("password")
+    .value;
+
+  /* DEMO CLASS 10 LOGIN */
+  if(username === "class10student" && password === "BET10"){
+
+    sessionStorage.setItem("betLoggedIn", "true");
+    sessionStorage.setItem("betClass", "10");
+
+    window.location.href = "class10-dashboard.html";
+
+  } else {
+
+    loginMessage.textContent =
+      "Invalid username or password.";
+
+  }
+});
+</script>
+  
 </body>
 </html>
